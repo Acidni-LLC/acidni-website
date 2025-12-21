@@ -1,0 +1,17 @@
+{
+  "name": "acidni-website-api",
+  "version": "1.0.0",
+  "description": "API functions for Acidni website",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "azure-devops-node-api": "^12.0.0"
+  },
+  "devDependencies": {
+    "@azure/functions": "^4.0.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

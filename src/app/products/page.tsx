@@ -1,0 +1,207 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Products',
+  description: 'Software products built by Acidni LLC. ACCM - Copilot Chat Manager for VS Code, and Terprint - Cannabis Data Intelligence platform.',
+}
+
+const products = [
+  {
+    name: 'ACCM - Copilot Chat Manager',
+    tagline: 'Never lose a Copilot conversation again',
+    description: 'A powerful VS Code extension for managing, organizing, searching, and exporting GitHub Copilot chat histories with word clouds and deep search.',
+    href: '/products/accm',
+    icon: '💬',
+    badge: '🆕 NEW',
+    badgeClass: 'badge-new',
+    gradient: 'from-acidni-500 to-accent-500',
+    published: 'Published on VS Marketplace',
+    features: [
+      'Dashboard with statistics & word clouds',
+      'Deep search across all conversations',
+      'Export to JSON, Markdown, or HTML',
+      'Organize by workspace or project',
+    ],
+    cta: {
+      primary: {
+        text: 'Install Extension',
+        href: 'https://marketplace.visualstudio.com/items?itemName=AcidniLLC.copilot-chat-manager',
+        external: true,
+      },
+      secondary: {
+        text: 'Learn More',
+        href: '/products/accm',
+      },
+    },
+  },
+  {
+    name: 'Terprint',
+    tagline: 'Cannabis Data Intelligence',
+    description: 'Comprehensive data platform for Florida medical marijuana. Real-time menu aggregation, COA data extraction, and analytics powered by Azure.',
+    href: '/products/terprint',
+    icon: '🌿',
+    badge: 'Coming Soon',
+    badgeClass: 'bg-amber-500/20 text-amber-300',
+    gradient: 'from-emerald-500 to-teal-500',
+    published: 'Launching Soon',
+    features: [
+      'Real-time dispensary menu data',
+      'Automated COA extraction',
+      'Custom Power BI visualizations',
+      'Azure-native SaaS architecture',
+    ],
+    cta: {
+      primary: {
+        text: 'Join Waitlist',
+        href: 'https://sales.terprint.com',
+        external: true,
+      },
+      secondary: {
+        text: 'Learn More',
+        href: '/products/terprint',
+      },
+    },
+  },
+]
+
+export default function ProductsPage() {
+  return (
+    <div className="min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="section-padding bg-slate-900">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+              Built by Us,{' '}
+              <span className="gradient-text">Used by Many</span>
+            </h1>
+            <p className="text-xl text-slate-400">
+              We don't just consult — we build and ship our own products. 
+              Real software solving real problems.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section className="section-padding bg-slate-950">
+        <div className="container-custom">
+          <div className="space-y-16">
+            {products.map((product, index) => (
+              <div 
+                key={product.name}
+                className="card p-8 lg:p-12 relative overflow-hidden"
+              >
+                <div className="absolute top-6 right-6">
+                  <span className={`badge ${product.badgeClass}`}>{product.badge}</span>
+                </div>
+                
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center mb-6`}>
+                      <span className="text-4xl">{product.icon}</span>
+                    </div>
+                    <h2 className="text-3xl font-bold mb-2">{product.name}</h2>
+                    <p className={`text-sm mb-4 ${index === 0 ? 'text-acidni-400' : 'text-emerald-400'}`}>
+                      {product.published}
+                    </p>
+                    <p className="text-xl text-slate-300 mb-4">{product.tagline}</p>
+                    <p className="text-slate-400 mb-6">{product.description}</p>
+                    
+                    <ul className="space-y-3 mb-8">
+                      {product.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-3 text-slate-300">
+                          <svg className="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <div className="flex flex-wrap gap-4">
+                      <a 
+                        href={product.cta.primary.href}
+                        target={product.cta.primary.external ? '_blank' : undefined}
+                        rel={product.cta.primary.external ? 'noopener noreferrer' : undefined}
+                        className={`btn-primary ${index === 1 ? 'bg-gradient-to-r from-emerald-500 to-teal-500' : ''}`}
+                      >
+                        {product.cta.primary.text}
+                      </a>
+                      <Link href={product.cta.secondary.href} className="btn-secondary">
+                        {product.cta.secondary.text}
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                    <div className={`aspect-square rounded-3xl bg-gradient-to-br ${product.gradient} bg-opacity-10 flex items-center justify-center p-12`}>
+                      <span className="text-[150px] opacity-30">{product.icon}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why We Build Section */}
+      <section className="section-padding bg-slate-900">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-4 text-center">Why We Build Products</h2>
+          <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
+            Our products serve two purposes: solving real problems and proving our engineering capabilities.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-acidni-500/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">🎯</span>
+              </div>
+              <h3 className="font-semibold mb-2">Solve Real Problems</h3>
+              <p className="text-slate-400 text-sm">
+                Our products address genuine pain points we've encountered in our own work.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-accent-500/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">🏆</span>
+              </div>
+              <h3 className="font-semibold mb-2">Prove Our Skills</h3>
+              <p className="text-slate-400 text-sm">
+                Published products on VS Marketplace and Azure Marketplace demonstrate our capabilities.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">🔄</span>
+              </div>
+              <h3 className="font-semibold mb-2">Stay Current</h3>
+              <p className="text-slate-400 text-sm">
+                Building products keeps us sharp on the latest technologies and best practices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding gradient-bg">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            Want Us to Build Something for You?
+          </h2>
+          <p className="text-slate-300 max-w-2xl mx-auto mb-10">
+            Our product experience translates directly to client projects. 
+            Let's discuss what you need built.
+          </p>
+          <Link href="/contact" className="btn-primary bg-white text-slate-900 hover:bg-slate-100">
+            Start a Conversation
+          </Link>
+        </div>
+      </section>
+    </div>
+  )
+}

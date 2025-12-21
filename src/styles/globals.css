@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-900 text-slate-50 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-acidni-400 to-accent-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-acidni-600 via-acidni-700 to-slate-900;
+  }
+
+  .gradient-border {
+    @apply border border-transparent bg-clip-padding;
+    background-image: linear-gradient(theme('colors.slate.800'), theme('colors.slate.800')), 
+                      linear-gradient(to right, theme('colors.acidni.500'), theme('colors.accent.500'));
+    background-origin: padding-box, border-box;
+  }
+
+  .card {
+    @apply bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50;
+  }
+
+  .card-hover {
+    @apply hover:bg-slate-800/70 hover:border-acidni-500/50 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold;
+    @apply bg-gradient-to-r from-acidni-500 to-acidni-600 text-white;
+    @apply hover:from-acidni-400 hover:to-acidni-500;
+    @apply transition-all duration-200 shadow-lg shadow-acidni-500/25;
+    @apply focus:outline-none focus:ring-2 focus:ring-acidni-500 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-semibold;
+    @apply bg-slate-800 text-white border border-slate-700;
+    @apply hover:bg-slate-700 hover:border-acidni-500/50;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-acidni-500 focus:ring-offset-2 focus:ring-offset-slate-900;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-new {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+
+  .badge-marketplace {
+    @apply bg-accent-500/20 text-accent-400 border border-accent-500/30;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-24 lg:py-32;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animateIn 0.5s ease-out forwards;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .bg-grid {
+    background-image: 
+      linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-glow {
+    background-image: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+  }
+}

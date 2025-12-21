@@ -1,0 +1,31 @@
+{
+  "name": "@acidni/feedback-sdk",
+  "version": "1.0.0",
+  "description": "SDK for submitting feedback to Acidni from apps and add-ins",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "acidni",
+    "feedback",
+    "bug-report",
+    "feature-request"
+  ],
+  "author": "Acidni LLC",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Acidni-LLC/acidni-website"
+  }
+}
