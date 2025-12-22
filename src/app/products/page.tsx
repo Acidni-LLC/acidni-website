@@ -36,6 +36,63 @@ const products = [
     },
   },
   {
+    name: 'ACCA - Chat Cost Analyzer',
+    tagline: 'Track AI token usage and costs',
+    description:
+      'Estimate and track AI chat token usage and costs across your VS Code AI workflows. Stay on budget with model-aware pricing and session totals.',
+    href: '/products/acca',
+    icon: '🧮',
+    badge: '🆕 NEW',
+    badgeClass: 'badge-new',
+    gradient: 'from-violet-500 to-fuchsia-500',
+    published: 'Published on VS Marketplace',
+    features: [
+      'Per-chat and session cost estimates',
+      'Model-aware pricing profiles',
+      'Token usage and cost breakdowns',
+      'Export summaries for reporting',
+    ],
+    cta: {
+      primary: {
+        text: 'Install Extension',
+        href: 'https://marketplace.visualstudio.com/items?itemName=AcidniLLC.ai-chat-cost-analyzer',
+        external: true,
+      },
+      secondary: {
+        text: 'Learn More',
+        href: '/products/acca',
+      },
+    },
+  },
+  {
+    name: 'Acidni AI Chat Expert',
+    tagline: 'Expert AI workflows for developers',
+    description:
+      'Advanced AI-assisted development workflows designed by Acidni. Opinionated prompts, tools, and workflows to accelerate enterprise-grade coding.',
+    href: '/products/ai-chat-expert',
+    icon: '🧠',
+    badge: 'Coming Soon',
+    badgeClass: 'bg-amber-500/20 text-amber-300',
+    gradient: 'from-indigo-500 to-cyan-500',
+    published: 'Launching Soon',
+    features: [
+      'Task-focused AI workflows',
+      'Code-aware context shaping',
+      'Enterprise-ready safety rails',
+      'Seamless VS Code integration',
+    ],
+    cta: {
+      primary: {
+        text: 'Join Waitlist',
+        href: '/contact',
+      },
+      secondary: {
+        text: 'Learn More',
+        href: '/products/ai-chat-expert',
+      },
+    },
+  },
+  {
     name: 'Terprint',
     tagline: 'Cannabis Data Intelligence',
     description: 'Comprehensive data platform for Florida medical marijuana. Real-time menu aggregation, COA data extraction, and analytics powered by Azure.',

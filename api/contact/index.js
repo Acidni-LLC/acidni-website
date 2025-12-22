@@ -12,7 +12,7 @@ module.exports = async function (context, req) {
     return;
   }
 
-  const { name, email, company, service, message } = req.body || {};
+  const { name, email, company, service, message, recaptchaToken } = req.body || {};
 
   // Validate required fields
   if (!name || !email || !message) {
@@ -21,6 +21,60 @@ module.exports = async function (context, req) {
       body: { error: 'Missing required fields: name, email, message' }
     };
     return;
+  }
+
+  // Verify reCAPTCHA if token provided
+  if (recaptchaToken) {
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecret) {
+      try {
+        const verifyResponse = await new Promise((resolve, reject) => {
+          const payload = JSON.stringify({
+            secret: recaptchaSecret,
+            response: recaptchaToken,
+          });
+
+          const options = {
+            hostname: 'www.google.com',
+            port: 443,
+            path: '/recaptcha/api/siteverify',
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Content-Length': Buffer.byteLength(payload),
+            },
+          };
+
+          const verifyReq = https.request(options, (res) => {
+            let data = '';
+            res.on('data', (chunk) => data += chunk);
+            res.on('end', () => {
+              try {
+                resolve(JSON.parse(data));
+              } catch (e) {
+                reject(e);
+              }
+            });
+          });
+
+          verifyReq.on('error', reject);
+          verifyReq.write(payload);
+          verifyReq.end();
+        });
+
+        if (!verifyResponse.success || verifyResponse.score < 0.5) {
+          context.log('reCAPTCHA verification failed:', verifyResponse);
+          context.res = {
+            status: 400,
+            body: { error: 'reCAPTCHA verification failed' }
+          };
+          return;
+        }
+      } catch (error) {
+        context.log.error('reCAPTCHA verification error:', error.message);
+        // Continue anyway if verification fails (graceful degradation)
+      }
+    }
   }
 
   // Build email content

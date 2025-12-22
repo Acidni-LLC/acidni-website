@@ -25,6 +25,15 @@ interface Metadata {
   [key: string]: string
 }
 
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void
+      execute: (siteKey: string, options: { action: string }) => Promise<string>
+    }
+  }
+}
+
 function getUrlParams(): URLSearchParams {
   if (typeof window === 'undefined') return new URLSearchParams()
   return new URLSearchParams(window.location.search)
@@ -73,6 +82,23 @@ export default function FeedbackPage() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [ticketId, setTicketId] = useState('')
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
+
+  // Load reCAPTCHA script
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`
+    script.async = true
+    script.defer = true
+    script.onload = () => setRecaptchaLoaded(true)
+    document.head.appendChild(script)
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script)
+      }
+    }
+  }, [])
 
   // Collect metadata from URL params and browser on mount
   useEffect(() => {
@@ -141,12 +167,24 @@ export default function FeedbackPage() {
     }
 
     try {
+      // Get reCAPTCHA token
+      let recaptchaToken = ''
+      if (recaptchaLoaded && window.grecaptcha) {
+        await window.grecaptcha.ready(async () => {
+          recaptchaToken = await window.grecaptcha.execute(
+            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
+            { action: 'feedback_submission' }
+          )
+        })
+      }
+
       const response = await fetch('/api/feedback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
           metadata,
+          recaptchaToken,
         }),
       })
 

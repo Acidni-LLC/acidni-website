@@ -1,5 +1,6 @@
 import { AzureFunction, Context, HttpRequest } from '@azure/functions'
 import * as azdev from 'azure-devops-node-api'
+import axios from 'axios'
 
 interface FeedbackRequest {
   type: 'bug' | 'feedback' | 'feature'
@@ -7,6 +8,7 @@ interface FeedbackRequest {
   description: string
   email: string
   acceptTerms: boolean
+  recaptchaToken?: string
   metadata: {
     app: string
     version: string
@@ -18,6 +20,38 @@ interface FeedbackRequest {
     timestamp: string
     referrer: string
     [key: string]: string
+  }
+}
+
+// reCAPTCHA verification
+async function verifyRecaptcha(token: string | undefined): Promise<{ success: boolean; score?: number; error?: string }> {
+  if (!token) {
+    return { success: false, error: 'No reCAPTCHA token provided' }
+  }
+
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY
+  if (!secretKey) {
+    console.warn('RECAPTCHA_SECRET_KEY not configured, skipping verification')
+    return { success: true } // Allow in dev if not configured
+  }
+
+  try {
+    const response = await axios.post(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`
+    )
+
+    if (response.data.success && response.data.score >= 0.5) {
+      return { success: true, score: response.data.score }
+    }
+
+    return {
+      success: false,
+      error: 'reCAPTCHA verification failed',
+      score: response.data.score,
+    }
+  } catch (error) {
+    console.error('reCAPTCHA verification error:', error)
+    return { success: false, error: 'reCAPTCHA verification error' }
   }
 }
 

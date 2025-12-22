@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Script from 'next/script'
 
 const services = [
   { value: 'ai-consulting', label: 'AI Consulting & Strategy' },
@@ -21,11 +22,25 @@ export default function ContactPage() {
   })
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('submitting')
     setErrorMessage('')
+
+    // Get reCAPTCHA token
+    let recaptchaToken = ''
+    if (recaptchaLoaded && (window as any).grecaptcha) {
+      try {
+        recaptchaToken = await (window as any).grecaptcha.execute(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+          { action: 'contact' }
+        )
+      } catch (error) {
+        console.error('reCAPTCHA error:', error)
+      }
+    }
     
     const serviceLabel = services.find(s => s.value === formData.service)?.label || formData.service
 
@@ -41,6 +56,7 @@ export default function ContactPage() {
           company: formData.company,
           service: serviceLabel,
           message: formData.message,
+          recaptchaToken,
         }),
       })
 
@@ -66,9 +82,14 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="section-padding bg-slate-900">
+    <>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+        onLoad={() => setRecaptchaLoaded(true)}
+      />
+      <div className="min-h-screen pt-20">
+        {/* Hero Section */}
+        <section className="section-padding bg-slate-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
@@ -302,5 +323,6 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
