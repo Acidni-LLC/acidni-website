@@ -1,0 +1,50 @@
+name: Import Terprint Offers
+
+on:
+  workflow_dispatch:
+    inputs:
+      marketplace_path:
+        description: Relative path to offers directory (default checks out repo)
+        required: false
+        default: marketplace/marketplace-offers/offers
+  schedule:
+    - cron: '0 6 * * 1' # Weekly, Monday 06:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout acidni-website
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout terprint-marketplace
+        uses: actions/checkout@v4
+        with:
+          repository: Acidni-LLC/terprint-marketplace
+          path: marketplace
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Generate offers module
+        run: |
+          node scripts/import-terprint-offers.js "${{ github.event.inputs.marketplace_path || 'marketplace/marketplace-offers/offers' }}"
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add src/lib/terprint-offers.generated.ts
+            git commit -m "chore(offers): import Terprint marketplace offers"
+            git push
+          else
+            echo "No changes to commit"
+          fi

@@ -126,6 +126,12 @@ export default function TerprintPage() {
                 >
                   Contact Us
                 </a>
+                <a 
+                  href="/products/terprint/offers"
+                  className="btn-secondary"
+                >
+                  View Terprint Products
+                </a>
               </div>
             </div>
             
@@ -275,6 +281,17 @@ export default function TerprintPage() {
                   <div className="text-sm text-slate-400">Questions or partnerships</div>
                 </div>
               </a>
+              
+              <Link 
+                href="/products/terprint/offers"
+                className="card card-hover p-6 flex items-center gap-4"
+              >
+                <span className="text-2xl">🧩</span>
+                <div className="text-left">
+                  <div className="font-semibold">Explore Terprint Products</div>
+                  <div className="text-sm text-slate-400">See available and upcoming offers</div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

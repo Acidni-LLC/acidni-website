@@ -76,6 +76,8 @@ acidni-website/
 | Products | `/products/` | Software products |
 | ACCM | `/products/accm/` | Copilot Chat Manager |
 | Terprint | `/products/terprint/` | Terprint product page |
+| Terprint Offers | `/products/terprint/offers/` | List of Terprint marketplace products |
+| Offer Detail | `/products/terprint/offers/[slug]` | Individual offer overview page |
 | About | `/about/` | Company information |
 | Contact | `/contact/` | Contact form |
 
@@ -91,19 +93,42 @@ acidni-website/
 
 ## 📦 Deployment
 
-Deployed to Azure Static Web Apps. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for details.
+Automated via GitHub Actions. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for details.
 
-```bash
-# Build and deploy
-npm run build
-npx @azure/static-web-apps-cli deploy ./out --deployment-token <TOKEN>
-```
+On push to `master`, the workflow builds and deploys to Azure Static Web Apps.
 
 ---
 
 ## 📝 Content
 
 All website copy is documented in [docs/CONTENT.md](docs/CONTENT.md). Update that file for content changes.
+
+---
+
+## 🧩 Terprint Offers (Marketplace Import)
+
+To display concise, actionable summaries of Terprint marketplace products:
+
+1. Generate offers from your marketplace repo.
+
+```bash
+npm run import:terprint "C:\\Users\\JamiesonGill\\Documents\\GitHub\\Acidni-LLC\\terprint-marketplace\\marketplace-offers\\offers"
+```
+
+2. The script writes a compact module to:
+
+- `src/lib/terprint-offers.generated.ts`
+
+3. Pages automatically use the generated data. If the generated file is empty, the site falls back to manual defaults in `src/lib/terprint-offers.ts`.
+
+4. Visit:
+
+- `/products/terprint/offers` for the index
+- `/products/terprint/offers/<slug>` for details
+
+Fields shown: name, tagline, summary, features (up to 6), pricing (up to 4), audience, and CTAs (Azure Marketplace, Demo, Docs, Contact).
+
+Note: You can rerun the import anytime as listings evolve.
 
 ---
 
