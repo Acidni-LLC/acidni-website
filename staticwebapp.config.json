@@ -1,7 +1,6 @@
 {
   "routes": [
     { "route": "/feedback", "rewrite": "/feedback/index.html" },
-    { "route": "/feedback/", "rewrite": "/feedback/index.html" },
     { "route": "/feedback/*", "rewrite": "/feedback/index.html" }
   ],
   "navigationFallback": {
