@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export",
+    "export": "next build",
     "pack:swa": "powershell -ExecutionPolicy Bypass -File scripts/package-artifact.ps1",
     "import:terprint": "node scripts/import-terprint-offers.js"
   },
