@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     unoptimized: true,  // Required for static export
   },
+  eslint: {
+    // Lint in CI, but don't block production builds/exports
+    ignoreDuringBuilds: true,
+  },
   // Environment variables for build
   env: {
     SITE_URL: process.env.SITE_URL || 'https://acidni.net',

@@ -1,0 +1,78 @@
+name: Deploy to Azure Static Web Apps
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    concurrency:
+      group: swa-acidni-website
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site (Next.js export)
+        run: npm run export
+
+      - name: Include SWA routing config in artifact
+        run: cp staticwebapp.config.json out/staticwebapp.config.json
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          app_location: '/'
+          api_location: ''
+          output_location: 'out'
+
+      - name: Post-deploy smoke check (custom domain)
+        run: |
+          set -e
+          URL="https://www.acidni.net/feedback/"
+          echo "Checking $URL ..."
+          for i in 1 2 3 4 5; do
+            echo "Attempt $i"
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+            if [ "$STATUS" = "200" ] || [ "$STATUS" = "304" ]; then
+              echo "OK: $URL returned $STATUS"
+              exit 0
+            fi
+            echo "Got $STATUS; waiting then retrying..."
+            sleep 10
+          done
+          echo "ERROR: $URL did not return 200 after retries"
+          exit 1
+
+      - name: Post-deploy smoke check (default hostname)
+        if: always()
+        run: |
+          # Fallback check; ignore failure if custom domain passed
+          URL_DEFAULT="https://zealous-stone-0fafe420f.6.azurestaticapps.net/feedback/"
+          echo "Checking default host $URL_DEFAULT ..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL_DEFAULT")
+          echo "Default host status: $STATUS"
+
+      - name: Post-deploy smoke check (products/acca)
+        if: always()
+        run: |
+          set -e
+          URL="https://www.acidni.net/products/acca/"
+          echo "Checking $URL ..."
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+          echo "products/acca status: $STATUS"

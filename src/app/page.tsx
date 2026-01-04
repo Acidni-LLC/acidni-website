@@ -1,3 +1,21 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'AI Consulting, Application Modernization, and Products for Azure-First Teams',
+  description:
+    'Acidni LLC helps enterprises and growing businesses adopt AI safely, modernize legacy applications on Azure, and ship real products like ACCM and Terprint.',
+  keywords: [
+    'AI consulting for enterprises',
+    'Azure application modernization',
+    'GitHub Copilot tools',
+    'VS Code extensions',
+    'AI strategy and implementation',
+    'legacy modernization on Azure',
+    'Terprint cannabis data platform',
+    'ACCM Copilot Chat Manager',
+  ],
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen">
