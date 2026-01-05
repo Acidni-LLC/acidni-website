@@ -70,8 +70,8 @@ export default function CaseStudiesPage() {
             {caseStudies.map((study, index) => (
               <div key={study.title} className="relative">
                 {/* Case Study Header */}
-                <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
-                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                <div className="mb-12">
+                  <div className="">
                     <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${study.gradient} flex items-center justify-center mb-6`}>
                       <span className="text-4xl">{study.icon}</span>
                     </div>
@@ -89,11 +89,6 @@ export default function CaseStudiesPage() {
                       >
                         Visit Site →
                       </a>
-                    </div>
-                  </div>
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''} flex items-center justify-center`}>
-                    <div className={`w-full max-w-sm aspect-square rounded-3xl bg-gradient-to-br ${study.gradient} bg-opacity-10 flex items-center justify-center`}>
-                      <span className="text-[100px] opacity-30">{study.icon}</span>
                     </div>
                   </div>
                 </div>

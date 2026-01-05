@@ -115,41 +115,30 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="section-padding bg-slate-950">
         <div className="container-custom">
-          <div className="space-y-16">
-            {services.map((service, index) => (
+          <div className="space-y-24">
+            {services.map((service) => (
               <div 
                 key={service.title}
-                className={`grid lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                }`}
+                className="max-w-3xl"
               >
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className={`w-16 h-16 rounded-2xl bg-${service.color}-500/20 flex items-center justify-center mb-6`}>
-                    <span className="text-4xl">{service.icon}</span>
-                  </div>
-                  <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
-                  <p className="text-slate-400 text-lg mb-6">{service.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3 text-slate-300">
-                        <svg className={`w-5 h-5 text-${service.color}-500 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href={service.href} className="btn-primary">
-                    Learn More →
-                  </Link>
+                <div className={`w-16 h-16 rounded-2xl bg-${service.color}-500/20 flex items-center justify-center mb-6`}>
+                  <span className="text-4xl">{service.icon}</span>
                 </div>
-                <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className={`card p-12 bg-gradient-to-br from-${service.color}-500/10 to-transparent`}>
-                    <div className="aspect-square flex items-center justify-center">
-                      <span className="text-[120px] opacity-50">{service.icon}</span>
-                    </div>
-                  </div>
-                </div>
+                <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
+                <p className="text-slate-400 text-lg mb-6">{service.description}</p>
+                <ul className="space-y-3 mb-8">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3 text-slate-300">
+                      <svg className={`w-5 h-5 text-${service.color}-500 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link href={service.href} className="btn-primary">
+                  Learn More
+                </Link>
               </div>
             ))}
           </div>

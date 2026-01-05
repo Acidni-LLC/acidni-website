@@ -70,31 +70,22 @@ export default function AboutPage() {
       {/* Mission Section */}
       <section className="section-padding bg-slate-950">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-              <p className="text-slate-400 text-lg mb-6">
-                We help organizations adopt AI intelligently, modernize legacy applications, 
-                and build software that scales. We believe technology transformation should 
-                deliver measurable business value, not just impressive demos.
-              </p>
-              <p className="text-slate-400 mb-6">
-                Founded with a focus on practical, production-ready solutions, Acidni LLC 
-                brings deep Azure expertise and real product experience to every engagement. 
-                Our own published products — ACCM on VS Marketplace with more VS Code extensions 
-                in development — demonstrate the quality we deliver.
-              </p>
-              <p className="text-slate-300 font-medium">
-                From strategy to code, we own the entire lifecycle.
-              </p>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-full max-w-sm aspect-square rounded-3xl bg-gradient-to-br from-acidni-500/20 to-accent-500/20 border border-acidni-500/30 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-acidni-500 to-accent-500 flex items-center justify-center">
-                  <span className="text-white font-bold text-5xl">A</span>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
+            <p className="text-slate-400 text-lg mb-6">
+              We help organizations adopt AI intelligently, modernize legacy applications, 
+              and build software that scales. We believe technology transformation should 
+              deliver measurable business value, not just impressive demos.
+            </p>
+            <p className="text-slate-400 mb-6">
+              Founded with a focus on practical, production-ready solutions, Acidni LLC 
+              brings deep Azure expertise and real product experience to every engagement. 
+              Our own published products — ACCM on VS Marketplace with more VS Code extensions 
+              in development — demonstrate the quality we deliver.
+            </p>
+            <p className="text-slate-300 font-medium">
+              From strategy to code, we own the entire lifecycle.
+            </p>
           </div>
         </div>
       </section>

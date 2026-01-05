@@ -43,11 +43,10 @@ export default function AIChatExpertPage() {
       {/* Hero */}
       <section className="section-padding bg-slate-900">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Link href="/products" className="text-acidni-400 hover:text-acidni-300 text-sm font-medium mb-4 inline-flex items-center gap-2">
-                ← Back to Products
-              </Link>
+          <div className="max-w-3xl">
+            <Link href="/products" className="text-acidni-400 hover:text-acidni-300 text-sm font-medium mb-4 inline-flex items-center gap-2">
+              ← Back to Products
+            </Link>
               <div className="flex items-center gap-3 mt-4 mb-6">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center">
                   <span className="text-3xl">🧠</span>
@@ -83,13 +82,6 @@ export default function AIChatExpertPage() {
                 <button type="submit" className="btn-primary">Join Waitlist</button>
                 <p className="text-xs text-slate-500 mt-3">Protected by reCAPTCHA v3. The Google Privacy Policy and Terms of Service apply.</p>
               </form>
-            </div>
-
-            <div className="flex items-center justify-center">
-              <div className="w-full max-w-md aspect-square rounded-3xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-cyan-500/30 flex items-center justify-center">
-                <span className="text-[120px] opacity-70">🧠</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>

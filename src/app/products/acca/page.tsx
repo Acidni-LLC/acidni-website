@@ -20,43 +20,35 @@ export default function ACCAPage() {
       {/* Hero */}
       <section className="section-padding bg-slate-900">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Link href="/products" className="text-acidni-400 hover:text-acidni-300 text-sm font-medium mb-4 inline-flex items-center gap-2">
-                ← Back to Products
-              </Link>
-              <div className="flex items-center gap-3 mt-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
-                  <span className="text-3xl">🧮</span>
-                </div>
-                <div>
-                  <h1 className="text-3xl sm:text-4xl font-bold">ACCA</h1>
-                  <p className="text-slate-400">Chat Cost Analyzer</p>
-                </div>
+          <div className="max-w-3xl">
+            <Link href="/products" className="text-acidni-400 hover:text-acidni-300 text-sm font-medium mb-4 inline-flex items-center gap-2">
+              ← Back to Products
+            </Link>
+            <div className="flex items-center gap-3 mt-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
+                <span className="text-3xl">🧮</span>
               </div>
-
-              <span className="badge badge-new mb-4">🆕 Published on VS Marketplace</span>
-
-              <p className="text-xl text-slate-300 mb-6">
-                Keep an eye on AI usage. ACCA estimates token usage and costs so your team can stay informed and on budget.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://marketplace.visualstudio.com/items?itemName=AcidniLLC.ai-chat-cost-analyzer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  Install from VS Marketplace
-                </a>
+              <div>
+                <h1 className="text-3xl sm:text-4xl font-bold">ACCA</h1>
+                <p className="text-slate-400">Chat Cost Analyzer</p>
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
-              <div className="w-full max-w-md aspect-square rounded-3xl bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-fuchsia-500/30 flex items-center justify-center">
-                <span className="text-[120px]">🧮</span>
-              </div>
+            <span className="badge badge-new mb-4">🆕 Published on VS Marketplace</span>
+
+            <p className="text-xl text-slate-300 mb-6">
+              Keep an eye on AI usage. ACCA estimates token usage and costs so your team can stay informed and on budget.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=AcidniLLC.ai-chat-cost-analyzer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                Install from VS Marketplace
+              </a>
             </div>
           </div>
         </div>

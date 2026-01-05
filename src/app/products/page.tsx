@@ -154,8 +154,8 @@ export default function ProductsPage() {
                   <span className={`badge ${product.badgeClass}`}>{product.badge}</span>
                 </div>
                 
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                <div className="">
+                  <div className="">
                     <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center mb-6`}>
                       <span className="text-4xl">{product.icon}</span>
                     </div>
@@ -189,12 +189,6 @@ export default function ProductsPage() {
                       <Link href={product.cta.secondary.href} className="btn-secondary">
                         {product.cta.secondary.text}
                       </Link>
-                    </div>
-                  </div>
-                  
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className={`aspect-square rounded-3xl bg-gradient-to-br ${product.gradient} bg-opacity-10 flex items-center justify-center p-12`}>
-                      <span className="text-[150px] opacity-30">{product.icon}</span>
                     </div>
                   </div>
                 </div>

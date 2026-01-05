@@ -81,64 +81,56 @@ export default function TerprintPage() {
       {/* Hero Section */}
       <section className="section-padding bg-slate-900">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Link 
-                href="/products" 
-                className="text-acidni-400 hover:text-acidni-300 text-sm font-medium mb-4 inline-flex items-center gap-2"
-              >
-                ← Back to Products
-              </Link>
-              <div className="flex items-center gap-3 mt-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center">
-                  <span className="text-3xl">🌿</span>
-                </div>
-                <div>
-                  <h1 className="text-3xl sm:text-4xl font-bold">Terprint</h1>
-                  <p className="text-slate-400">Cannabis Data Intelligence</p>
-                </div>
+          <div className="max-w-3xl">
+            <Link 
+              href="/products" 
+              className="text-acidni-400 hover:text-acidni-300 text-sm font-medium mb-4 inline-flex items-center gap-2"
+            >
+              ← Back to Products
+            </Link>
+            <div className="flex items-center gap-3 mt-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center">
+                <span className="text-3xl">🌿</span>
               </div>
-              
-              <span className="badge bg-amber-500/20 text-amber-300 mb-4">🚀 Coming Soon</span>
-              
-              <p className="text-xl text-slate-300 mb-6">
-                The data platform powering smarter decisions in the Florida medical marijuana industry.
-              </p>
-              
-              <p className="text-slate-400 mb-8">
-                Terprint will aggregate dispensary menus, extract lab results from COAs, and provide 
-                actionable analytics. Our platform will help patients make informed decisions and 
-                businesses understand their market.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <a 
-                  href="https://sales.terprint.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary bg-gradient-to-r from-emerald-500 to-teal-500"
-                >
-                  Join the Waitlist
-                </a>
-                <a 
-                  href="/contact"
-                  className="btn-secondary"
-                >
-                  Contact Us
-                </a>
-                <a 
-                  href="/products/terprint/offers"
-                  className="btn-secondary"
-                >
-                  View Terprint Products
-                </a>
+              <div>
+                <h1 className="text-3xl sm:text-4xl font-bold">Terprint</h1>
+                <p className="text-slate-400">Cannabis Data Intelligence</p>
               </div>
             </div>
             
-            <div className="flex items-center justify-center">
-              <div className="w-full max-w-md aspect-square rounded-3xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center">
-                <span className="text-[120px]">🌿</span>
-              </div>
+            <span className="badge bg-amber-500/20 text-amber-300 mb-4">🚀 Coming Soon</span>
+            
+            <p className="text-xl text-slate-300 mb-6">
+              The data platform powering smarter decisions in the Florida medical marijuana industry.
+            </p>
+            
+            <p className="text-slate-400 mb-8">
+              Terprint will aggregate dispensary menus, extract lab results from COAs, and provide 
+              actionable analytics. Our platform will help patients make informed decisions and 
+              businesses understand their market.
+            </p>
+            
+            <div className="flex flex-wrap gap-4">
+              <a 
+                href="https://sales.terprint.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary bg-gradient-to-r from-emerald-500 to-teal-500"
+              >
+                Join the Waitlist
+              </a>
+              <a 
+                href="/contact"
+                className="btn-secondary"
+              >
+                Contact Us
+              </a>
+              <a 
+                href="/products/terprint/offers"
+                className="btn-secondary"
+              >
+                View Terprint Products
+              </a>
             </div>
           </div>
         </div>
@@ -191,41 +183,31 @@ export default function TerprintPage() {
       {/* Terpene Radar Section */}
       <section className="section-padding bg-slate-950">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Terpene Radar Visualization</h2>
-              <p className="text-slate-400 mb-6">
-                Our custom Power BI visualization makes it easy to understand and compare 
-                terpene profiles at a glance. The radar chart displays multiple terpenes 
-                simultaneously, helping users quickly identify dominant profiles.
-              </p>
-              <ul className="space-y-3 text-slate-300">
-                <li className="flex items-center gap-3">
-                  <span className="text-emerald-400">✓</span>
-                  Compare multiple products side-by-side
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-emerald-400">✓</span>
-                  Identify dominant terpenes instantly
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-emerald-400">✓</span>
-                  Interactive filtering and drill-down
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-emerald-400">✓</span>
-                  Custom Power BI visual
-                </li>
-              </ul>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-full max-w-md aspect-square rounded-3xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 flex items-center justify-center">
-                <div className="text-center">
-                  <span className="text-6xl mb-4 block">📊</span>
-                  <p className="text-slate-400">Terpene Radar Visualization</p>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold mb-4">Terpene Radar Visualization</h2>
+            <p className="text-slate-400 mb-6">
+              Our custom Power BI visualization makes it easy to understand and compare 
+              terpene profiles at a glance. The radar chart displays multiple terpenes 
+              simultaneously, helping users quickly identify dominant profiles.
+            </p>
+            <ul className="space-y-3 text-slate-300">
+              <li className="flex items-center gap-3">
+                <span className="text-emerald-400">✓</span>
+                Compare multiple products side-by-side
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-emerald-400">✓</span>
+                Identify dominant terpenes instantly
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-emerald-400">✓</span>
+                Interactive filtering and drill-down
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="text-emerald-400">✓</span>
+                Custom Power BI visual
+              </li>
+            </ul>
           </div>
         </div>
       </section>
