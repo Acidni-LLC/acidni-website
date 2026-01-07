@@ -1,330 +1,400 @@
-# Acidni LLC Corporate Website - Copilot Instructions
-
-## 🎯 Project Overview
-
-You are building the **Acidni LLC corporate website** — a modern, professional site showcasing our AI consulting, application modernization services, and packaged software products.
-
-**Company**: Acidni LLC  
-**Domain**: acidni.net  
-**Industry**: Enterprise Software Consulting & AI Solutions  
-**Target Audience**: CTOs, IT Directors, Enterprise Architects, Business Decision Makers, Developers
+# Acidni LLC - Master Copilot Instructions
 
 ---
 
-## 🏢 About Acidni LLC
-
-### Company Description
-Acidni LLC is a technology consulting company specializing in:
-1. **AI Adoption & Integration** — Helping enterprises implement AI/ML solutions
-2. **Application Modernization** — Migrating legacy systems to modern cloud architectures
-3. **Packaged Software Products** — Building and selling SaaS solutions and developer tools
-
-### Mission Statement
-> "Empowering enterprises to embrace the future through intelligent AI adoption and seamless application modernization."
-
-### Value Proposition
-- Deep expertise in Microsoft Azure, AI/ML, and modern development practices
-- Proven track record with real products (Terprint, ACCM)
-- End-to-end delivery: strategy → architecture → implementation → support
-- Focus on practical, business-value-driven solutions
+> **INHERITANCE MODEL**: This is the **master instruction file** for all Acidni LLC projects.
+> Project-specific instructions (like Terprint) **inherit** from this file and add domain-specific content.
 
 ---
 
-## 🚀 Our Products
+## 🏢 Company Overview
 
-### Product 1: ACCM - Acidni Copilot Chat Manager
-**Type**: VS Code Extension (Published on VS Marketplace)  
-**URL**: https://marketplace.visualstudio.com/items?itemName=AcidniLLC.copilot-chat-manager  
-**GitHub**: https://github.com/Acidni-LLC/copilot-chat-manager
+**Acidni LLC** is a software consulting and product company specializing in:
+- **AI Consulting & Integration** - AI-powered application modernization
+- **Azure Cloud Architecture** - Enterprise cloud solutions on Microsoft Azure
+- **Packaged Software Products** - SaaS platforms and developer tools
 
-**Description**: A powerful VS Code extension for managing, organizing, searching, and exporting GitHub Copilot chat histories with word clouds and deep search.
-
-**Key Features**:
-- 📊 Dashboard view with statistics and word cloud visualization
-- 🗂️ Sidebar views: All Chats, By Workspace, Recent
-- 📤 Export to JSON, Markdown, or HTML
-- 📥 Import chats with duplicate detection
-- 🔍 Full-text search and deep search with context highlighting
-- 🏷️ Project attachment for organization
-
-**Why It Matters**: Developers using GitHub Copilot generate valuable conversations that get lost. ACCM helps developers preserve, organize, and search their AI pair-programming knowledge.
+### Our Products
+- **Terprint** - Cannabis dispensary data analytics platform (Azure Marketplace)
+- **ACCM (Acidni Copilot Chat Manager)** - VS Code extension for managing Copilot chat history
 
 ---
 
-### Product 2: Terprint
-**Type**: SaaS Platform (Azure Marketplace)  
-**URL**: https://terprint.com  
-**Industry**: Cannabis/Medical Marijuana Data Analytics
+## 🚨 CRITICAL DIRECTIVES — ALL PROJECTS 🚨
 
-**Description**: Terprint is a comprehensive data platform for the Florida medical marijuana industry. We aggregate dispensary menus, extract lab results, and provide actionable analytics.
+> **These rules apply to EVERY Acidni project. Violations will cause production issues.**
 
-**Key Features**:
-- Real-time menu aggregation from Florida dispensaries
-- COA (Certificate of Analysis) data extraction
-- Terpene profiles and cannabinoid percentages
-- Custom Power BI visualizations (Terpene Radar)
-- Azure-native architecture
-- Available on Azure Marketplace
+### DIRECTIVE 1: REPOSITORY BOUNDARIES
 
-**Why It Matters**: Medical marijuana patients need accurate terpene and cannabinoid data to make informed decisions. Terprint provides the data infrastructure the industry needs.
+- **EACH APP LIVES IN ITS OWN REPOSITORY** — Do NOT edit files in sibling repos
+- **Cross-cutting changes go through the config project** (e.g., `terprint-config`)
+- **CREATE WORK ITEMS** to track changes needed across repos
+- If you need changes in another repo, document the requirement and create a work item
 
----
+### DIRECTIVE 2: AZURE AUTHENTICATION
 
-## 📄 Website Pages & Structure
+- **NEVER use API keys** for service-to-service authentication
+- **NEVER hard-code secrets** in source code
+- **ALWAYS use Entra ID (Azure AD)** managed identities
+- **ALWAYS validate token audience** to prevent token reuse attacks
+- **Store all secrets** in Azure Key Vault
 
-### 1. **Home Page** (`/`)
-- Hero section with bold tagline and CTA
-- Quick overview of 3 service pillars (AI, Modernization, Products)
-- Featured products section (ACCM and Terprint)
-- Client logos / trust indicators (if available)
-- Contact CTA
+### DIRECTIVE 3: DOCUMENTATION REQUIREMENTS
 
-### 2. **Services** (`/services/`)
-Main services landing page with cards linking to:
+- Every repo **MUST have** `README.md` with setup instructions
+- Every repo **MUST have** `docs/` folder with architecture documentation
+- Keep docs in sync with code changes (update in same PR)
+- Use Mermaid diagrams for architecture visualization
 
-#### 2a. AI Consulting (`/services/ai-consulting/`)
-- AI strategy and roadmap development
-- Machine learning model development
-- Azure OpenAI / Copilot integration
-- Intelligent automation (RPA + AI)
-- Data analytics and insights platforms
+### DIRECTIVE 4: CODE QUALITY
 
-#### 2b. Application Modernization (`/services/app-modernization/`)
-- Legacy system assessment
-- Cloud migration (Azure-first)
-- Microservices architecture
-- API modernization
-- DevOps transformation
-- Containerization (Docker, Kubernetes)
+- **All code must pass linting** before commit
+- **All code must have tests** (unit tests at minimum)
+- **All PRs must be reviewed** before merge
+- **Use conventional commits** format: `feat:`, `fix:`, `docs:`, `chore:`
 
-#### 2c. Custom Development (`/services/custom-development/`)
-- Full-stack application development
-- Azure Functions / serverless solutions
-- VS Code extensions
-- Power Platform solutions
-- Integration services
+### DIRECTIVE 5: USE REFERENCE DATA - DON'T ASK
 
-### 3. **Products** (`/products/`)
-Showcase packaged software:
-
-#### 3a. ACCM (`/products/accm/`)
-- VS Code extension for Copilot chat management
-- Features: Dashboard, Export, Search, Word Clouds
-- Link to VS Marketplace
-- Installation instructions
-- GitHub link
-
-#### 3b. Terprint (`/products/terprint/`)
-- Cannabis dispensary data aggregation platform
-- Real-time menu data, terpene profiles, COA extraction
-- Power BI analytics and custom visualizations
-- Azure Marketplace SaaS offering
-- Link to terprint.com
-
-### 4. **About** (`/about/`)
-- Company story and founding
-- Team (if applicable)
-- Technology partnerships (Microsoft Partner Network)
-- Company values
-
-### 5. **Case Studies** (`/case-studies/`)
-- ACCM: Solving the Copilot chat history problem
-- Terprint: End-to-end data platform
-- (Future case studies from consulting engagements)
-
-### 6. **Contact** (`/contact/`)
-- Contact form
-- Email: contact@acidni.net
-- Location (if applicable)
-- Calendly or meeting scheduler embed
+- **DO NOT ASK** about Azure resources, function apps, APIM endpoints, Key Vaults, or DNS
+- **REFERENCE THE TABLES BELOW** for all Azure infrastructure information
+- **ASSUME** the documented resources exist and are correctly configured
+- **USE** the documented API endpoints, paths, and operation names directly
+- If you need information not in this document, use Azure CLI to query it
 
 ---
 
-## 🎨 Design Guidelines
+## � ACIDNI AZURE RESOURCES QUICK REFERENCE
 
-### Visual Style
-- **Modern & Professional** — Clean, minimal, enterprise-appropriate
-- **Tech-forward** — Subtle tech/AI visual elements (gradients, abstract patterns, code snippets)
-- **High contrast** — Dark mode preferred with vibrant accent colors
-- **Animations** — Subtle Framer Motion animations for polish
+> **DO NOT ASK** about these resources. This is the authoritative reference.
 
-### Color Palette
-```
-Primary Blue:    #0ea5e9 (acidni-500)
-Dark Blue:       #0c4a6e (acidni-900)
-Accent Purple:   #d946ef (accent-500)
-Background:      #0f172a (slate-900) or #ffffff
-Text Primary:    #f8fafc (slate-50) on dark / #0f172a on light
-Text Secondary:  #94a3b8 (slate-400)
+### Azure Subscription
+
+| Property | Value |
+|----------|-------|
+| Subscription ID | `bb40fccf-9ffa-4bad-b9c0-ea40e326882c` |
+| Tenant ID | `3278dcb1-0a18-42e7-8acf-d3b5f8ae33cd` |
+| Organization | Acidni LLC |
+
+### Key Vaults
+
+| Vault | Resource Group | Purpose |
+|-------|----------------|---------|
+| `acidni-keyvault` | `rg-dev` | Acidni shared secrets (IONOS API, etc.) |
+| `kv-terprint` | `rg-dev-terprint-shared` | Terprint product secrets |
+
+### DNS Domains
+
+| Domain | Provider | Notes |
+|--------|----------|-------|
+| `acidni.net` | IONOS | Corporate domain, M365, Azure apps |
+| `acidni.com` | GoDaddy | Legacy (to be migrated) |
+| `terprint.com` | IONOS | Product domain |
+
+### Acidni Shared Apps
+
+| App | Type | Hostname |
+|-----|------|----------|
+| `swa-acidni-website` | Static Web App | `zealous-stone-0fafe420f.6.azurestaticapps.net` |
+
+### Internal Tools
+
+| Tool | Repository | Purpose |
+|------|------------|---------|
+| `acidni-dns` | `acidni-dns` | DNS management (IONOS, GoDaddy, Azure DNS) |
+| `acidni-config` | `acidni-config` | Company-wide configuration |
+
+---
+
+## �🔧 Technology Standards
+
+### Cloud Platform: Microsoft Azure
+
+| Service Type | Standard Choice | Notes |
+|--------------|-----------------|-------|
+| Compute | Azure Functions (Consumption) | Serverless first |
+| Storage | Azure Blob Storage | Data lake pattern |
+| Database (Analytics) | Azure Event House (Kusto) | KQL queries |
+| Database (Transactional) | Azure SQL | For marketplace/subscriptions |
+| Identity | Entra ID + Managed Identities | Never use API keys |
+| Secrets | Azure Key Vault | All secrets stored here |
+| Monitoring | Application Insights | Required for all services |
+| DevOps | Azure DevOps | CI/CD pipelines |
+
+### Primary Languages
+
+| Language | Version | Use Case |
+|----------|---------|----------|
+| Python | 3.12+ | Azure Functions, data processing, AI |
+| TypeScript | 5.x+ | Power BI visuals, web frontends, VS Code extensions |
+| C# | .NET 8+ | Marketplace services, complex backends |
+
+### Python Standards
+
+```python
+# ✅ CORRECT - Use pymssql for Azure SQL (Linux compatible)
+import pymssql
+cursor.execute("SELECT * FROM Users WHERE Id = %s", (user_id,))
+
+# ❌ WRONG - pyodbc fails on Azure Functions Consumption Plan
+import pyodbc
+cursor.execute("SELECT * FROM Users WHERE Id = ?", (user_id,))
 ```
 
-### Typography
-- **Headings**: Poppins (bold, display)
-- **Body**: Inter (clean, readable)
-- **Code/Tech**: JetBrains Mono
+**Required packages:**
+- `pymssql` (NOT `pyodbc`) - Azure SQL connections
+- `azure-identity` - Entra ID authentication
+- `azure-keyvault-secrets` - Secrets management
+- `pyjwt[crypto]` - Token validation
 
-### Components to Build
-- Responsive navbar with mobile menu
-- Hero sections with gradient backgrounds
-- Service cards with icons
-- Product showcase cards with badges (NEW, PUBLISHED)
-- Feature grids
-- Testimonial/quote blocks
-- CTA sections
-- Footer with links and social
+### TypeScript Standards
 
----
-
-## 🛠️ Technical Requirements
-
-### Stack
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icons**: Lucide React + Heroicons
-- **Deployment**: Azure Static Web Apps
-
-### File Structure
-```
-acidni-website/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Root layout
-│   │   ├── page.tsx            # Home page
-│   │   ├── services/
-│   │   │   ├── page.tsx
-│   │   │   ├── ai-consulting/page.tsx
-│   │   │   ├── app-modernization/page.tsx
-│   │   │   └── custom-development/page.tsx
-│   │   ├── products/
-│   │   │   ├── page.tsx
-│   │   │   ├── accm/page.tsx
-│   │   │   └── terprint/page.tsx
-│   │   ├── about/page.tsx
-│   │   ├── case-studies/page.tsx
-│   │   └── contact/page.tsx
-│   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Navbar.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   └── MobileMenu.tsx
-│   │   ├── ui/
-│   │   │   ├── Button.tsx
-│   │   │   ├── Card.tsx
-│   │   │   ├── Badge.tsx
-│   │   │   ├── Container.tsx
-│   │   │   └── Section.tsx
-│   │   ├── home/
-│   │   │   ├── Hero.tsx
-│   │   │   ├── Services.tsx
-│   │   │   ├── Products.tsx
-│   │   │   └── CTA.tsx
-│   │   └── shared/
-│   │       ├── ContactForm.tsx
-│   │       ├── ServiceCard.tsx
-│   │       └── ProductCard.tsx
-│   ├── lib/
-│   │   └── utils.ts
-│   └── styles/
-│       └── globals.css
-├── public/
-│   ├── images/
-│   ├── icons/
-│   └── favicon.ico
-└── docs/
-    ├── CONTENT.md
-    └── DEPLOYMENT.md
+```typescript
+// ✅ CORRECT - Strict type checking enabled
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "target": "ES2022"
+  }
+}
 ```
 
-### SEO Requirements
-- Proper meta tags on each page
-- OpenGraph images
-- Structured data (JSON-LD) for organization and products
-- Sitemap generation
-- robots.txt
+### Azure Functions Standards
+
+```json
+// ✅ CORRECT - Function key required
+{
+  "authLevel": "function",
+  "type": "httpTrigger"
+}
+
+// ❌ WRONG - Anonymous access (no security)
+{
+  "authLevel": "anonymous",
+  "type": "httpTrigger"
+}
+```
+
+**Exception**: Health check endpoints (`/api/health`) may be anonymous for load balancer probes.
 
 ---
 
-## 📝 Content Guidelines
+## 📁 Repository Structure Standards
 
-### Tone of Voice
-- **Professional** but approachable
-- **Confident** without being arrogant
-- **Technical** when appropriate, but accessible to business users
-- **Action-oriented** — clear CTAs
+Every Acidni repo should follow this structure:
 
-### Key Messages to Convey
-1. "We help enterprises adopt AI practically and profitably"
-2. "Modernize your legacy apps without disrupting your business"
-3. "From strategy to code — we deliver end-to-end"
-4. "Azure experts with real product experience"
-5. "Our own products prove our engineering excellence"
-6. "We build tools developers love" (ACCM)
-
-### SEO Keywords
-- AI consulting services
-- Application modernization
-- Azure cloud migration
-- Enterprise AI solutions
-- Legacy system modernization
-- Custom software development
-- Azure OpenAI integration
-- Digital transformation consulting
-- VS Code extension development
-- GitHub Copilot tools
-- Copilot chat manager
+```
+project-name/
+├── .github/
+│   ├── copilot-instructions.md    # Project-specific Copilot instructions
+│   ├── instructions/              # Technology-specific instruction files
+│   │   ├── python.instructions.md
+│   │   ├── azure-functions.instructions.md
+│   │   └── typescript.instructions.md
+│   └── workflows/                 # GitHub Actions (if not Azure DevOps)
+├── docs/
+│   ├── ARCHITECTURE.md           # System design, diagrams
+│   ├── INTEGRATION.md            # How to integrate with this service
+│   └── USAGE.md                  # API documentation
+├── src/                          # Source code
+├── tests/                        # Test files
+├── openapi.json                  # OpenAPI spec (for HTTP APIs)
+├── README.md                     # Quick start guide
+└── pyproject.toml / package.json # Dependencies
+```
 
 ---
 
-## 🚀 Implementation Order
+## 🔐 Security Best Practices
 
-When building this site, follow this order:
+### Authentication Flow (Service-to-Service)
 
-1. **Setup** — Install dependencies, verify build works
-2. **Layout** — Navbar, Footer, base layout
-3. **Home page** — Hero, services overview, products showcase, CTA
-4. **Products pages** — ACCM and Terprint detailed pages
-5. **Services pages** — Main services page + subpages
-6. **About page** — Company info
-7. **Contact page** — Form + info
-8. **Polish** — Animations, responsive testing, SEO
+```mermaid
+sequenceDiagram
+    participant ServiceA as Service A
+    participant EntraID as Entra ID
+    participant ServiceB as Service B
+    
+    ServiceA->>EntraID: Request token (managed identity)
+    EntraID-->>ServiceA: Bearer token
+    ServiceA->>ServiceB: API call + Bearer token
+    ServiceB->>ServiceB: Validate token (audience, issuer)
+    ServiceB-->>ServiceA: Response
+```
 
----
+### Input Validation
+- **Always sanitize** user inputs and external API responses
+- **Use parameterized queries** - Never string concatenation for SQL
+- **Validate all JSON schemas** before processing
 
-## ⚠️ Important Notes
-
-- **DO NOT** use placeholder images from external URLs — use solid color placeholders or SVG patterns
-- **DO** make all pages fully responsive (mobile-first)
-- **DO** use semantic HTML for accessibility
-- **DO** add proper loading states and error handling
-- **DO** keep bundle size reasonable — lazy load where appropriate
-- **DO** add "Published on VS Marketplace" badge for ACCM
-- **DO** add "Available on Azure Marketplace" badge for Terprint
-
----
-
-## 🔗 Product Links
-
-### ACCM - Acidni Copilot Chat Manager
-- **VS Marketplace**: https://marketplace.visualstudio.com/items?itemName=AcidniLLC.copilot-chat-manager
-- **GitHub**: https://github.com/Acidni-LLC/copilot-chat-manager
-- **Install Command**: `ext install AcidniLLC.copilot-chat-manager`
-
-### Terprint
-- **Website**: https://terprint.com
-- **Sales Site**: https://sales.terprint.com
-- **Azure Marketplace**: (link when available)
+### Secrets Management
+- **Never commit secrets** to source control
+- **Use Azure Key Vault** for all production secrets
+- **Use `.env` files** for local development (add to `.gitignore`)
+- **Rotate secrets** regularly
 
 ---
 
-## 📞 Contact Information for Site
+## 📝 Code Style Guidelines
 
-- **Email**: contact@acidni.net
-- **Website**: https://acidni.net
-- **GitHub**: https://github.com/Acidni-LLC
-- **VS Marketplace Publisher**: https://marketplace.visualstudio.com/publishers/AcidniLLC
-- **LinkedIn**: (add if available)
+### Naming Conventions
+
+| Type | Convention | Example |
+|------|------------|---------|
+| Functions/Methods | `snake_case` (Python), `camelCase` (TS/C#) | `get_user_by_id`, `getUserById` |
+| Classes | `PascalCase` | `UserService`, `DataProcessor` |
+| Constants | `UPPER_SNAKE_CASE` | `MAX_RETRIES`, `API_TIMEOUT` |
+| Files (Python) | `snake_case.py` | `user_service.py` |
+| Files (TS) | `kebab-case.ts` | `user-service.ts` |
+
+### Documentation Standards
+
+```python
+def process_batch(batch_id: str, options: dict) -> ProcessResult:
+    """
+    Process a batch of records from the data pipeline.
+    
+    Args:
+        batch_id: Unique identifier for the batch
+        options: Processing options including retry_count, timeout
+        
+    Returns:
+        ProcessResult with success status and processed record count
+        
+    Raises:
+        BatchNotFoundError: If batch_id doesn't exist
+        ProcessingError: If processing fails after retries
+    """
+```
+
+### Error Handling
+
+```python
+# ✅ CORRECT - Specific exception handling with context
+try:
+    result = await api_client.fetch_data(endpoint)
+except ConnectionError as e:
+    logger.error(f"Failed to connect to {endpoint}: {e}")
+    raise ServiceUnavailableError(f"External API unreachable: {endpoint}") from e
+except ValidationError as e:
+    logger.warning(f"Invalid response from {endpoint}: {e}")
+    return None
+
+# ❌ WRONG - Catching all exceptions silently
+try:
+    result = api_client.fetch_data(endpoint)
+except Exception:
+    pass
+```
 
 ---
 
-**Now go build an amazing website that showcases Acidni's capabilities and products!** 🚀
+## 🧪 Testing Standards
+
+### Test Pyramid
+
+| Level | Coverage Target | What to Test |
+|-------|-----------------|--------------|
+| Unit Tests | 80%+ | Business logic, pure functions |
+| Integration Tests | Key paths | API endpoints, database operations |
+| E2E Tests | Critical flows | Full user journeys |
+
+### Test Naming
+
+```python
+def test_process_batch_returns_success_when_valid_batch_id():
+    """Pattern: test_[method]_[expected_result]_when_[condition]"""
+    pass
+
+def test_process_batch_raises_error_when_batch_not_found():
+    pass
+```
+
+---
+
+## 🚀 CI/CD Standards
+
+### Commit Message Format
+
+Use [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat(batch-processor): add retry logic for failed API calls
+fix(menu-downloader): handle null values in dispensary response
+docs(readme): update deployment instructions
+chore(deps): bump azure-identity to 1.15.0
+test(unit): add tests for terpene extraction
+```
+
+### Branch Strategy
+
+- `main` - Production-ready code
+- `develop` - Integration branch (if used)
+- `feature/*` - New features
+- `fix/*` - Bug fixes
+- `release/*` - Release preparation
+
+### PR Requirements
+
+- [ ] All tests pass
+- [ ] Linting passes
+- [ ] Documentation updated
+- [ ] At least one reviewer approved
+- [ ] Conventional commit message
+
+---
+
+## 📊 Observability Standards
+
+### Logging Levels
+
+| Level | Use For |
+|-------|---------|
+| DEBUG | Detailed diagnostic info (local dev only) |
+| INFO | General operational events |
+| WARNING | Unexpected but handled situations |
+| ERROR | Failures that need attention |
+| CRITICAL | System failures requiring immediate action |
+
+### Application Insights
+
+All Azure services must:
+- Enable Application Insights
+- Use structured logging with correlation IDs
+- Track custom metrics for business events
+- Set up alerts for error rates > threshold
+
+---
+
+## 🎯 Code Review Checklist
+
+### When Submitting
+
+- [ ] Self-reviewed the diff
+- [ ] Tests added/updated
+- [ ] Documentation updated
+- [ ] No hardcoded secrets
+- [ ] Error handling is comprehensive
+- [ ] Logging is appropriate
+
+### When Reviewing
+
+- [ ] Business logic is correct
+- [ ] Security implications considered
+- [ ] Performance implications considered
+- [ ] Error handling is robust
+- [ ] Code is readable and maintainable
+- [ ] Tests cover key scenarios
+
+---
+
+## 📚 Resources
+
+- [Azure Documentation](https://docs.microsoft.com/azure/)
+- [Python Best Practices](https://docs.python-guide.org/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Azure Functions Best Practices](https://docs.microsoft.com/azure/azure-functions/functions-best-practices)
+
+---
+
+*This document is the master instruction file for Acidni LLC. Project-specific instructions should inherit from this and add domain context.*

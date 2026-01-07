@@ -1,0 +1,109 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Acidni.Web/1.0.0": {
+        "dependencies": {
+          "Azure.Communication.Email": "1.0.1",
+          "Microsoft.AspNetCore.Components.WebAssembly.Server": "9.0.0"
+        },
+        "runtime": {
+          "Acidni.Web.dll": {}
+        }
+      },
+      "Azure.Communication.Email/1.0.1": {
+        "dependencies": {
+          "Azure.Core": "1.34.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.Communication.Email.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.123.41802"
+          }
+        }
+      },
+      "Azure.Core/1.34.0": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "System.Memory.Data": "1.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Azure.Core.dll": {
+            "assemblyVersion": "1.34.0.0",
+            "fileVersion": "1.3400.23.36203"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Server/9.0.0": {
+        "runtime": {
+          "lib/net9.0/Microsoft.AspNetCore.Components.WebAssembly.Server.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52903"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "4.700.20.21406"
+          }
+        }
+      },
+      "System.Memory.Data/1.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.Data.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.221.20802"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Acidni.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Azure.Communication.Email/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dzbU2uBV12kgeF7c6gXoSOSJx21axQ7t9vPmzoR9k4+QHVO4CIqR3FjMXLmEDi27SCo5jovA8PWbY7GwDupZ3w==",
+      "path": "azure.communication.email/1.0.1",
+      "hashPath": "azure.communication.email.1.0.1.nupkg.sha512"
+    },
+    "Azure.Core/1.34.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6dNpM8OlGO+5gvt97tHXBp9qWRFkimRFulupDSGRgyT3sje1kQNza1/EMYaDcolmNARPmVJo8+wgD6ReV9wG5Q==",
+      "path": "azure.core/1.34.0",
+      "hashPath": "azure.core.1.34.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly.Server/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-916w5kN0c5ytEuHAk6e1W8JLixlcEhAuKJLSBGdZUaVBuz/3E6r6qnGCdR9cyPvu2D+Stkbfv60Z05gwF/JnDA==",
+      "path": "microsoft.aspnetcore.components.webassembly.server/9.0.0",
+      "hashPath": "microsoft.aspnetcore.components.webassembly.server.9.0.0.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
+      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
+      "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
+    },
+    "System.Memory.Data/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JGkzeqgBsiZwKJZ1IxPNsDFZDhUvuEdX8L8BDC8N3KOj+6zMcNU28CNN59TpZE/VJYy9cP+5M+sbxtWJx3/xtw==",
+      "path": "system.memory.data/1.0.2",
+      "hashPath": "system.memory.data.1.0.2.nupkg.sha512"
+    }
+  }
+}

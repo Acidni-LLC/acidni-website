@@ -27,9 +27,16 @@ yarn-error.log*
 .env*.local
 .env
 
+# deployment tokens and logs
+tmp_deployment_token.txt
+*.log
+*.zip
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.fake

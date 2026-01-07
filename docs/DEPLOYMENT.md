@@ -83,16 +83,14 @@ az staticwebapp secrets list \
 
 ### Option 2: GitHub Actions (Automated)
 
-Create `.github/workflows/deploy-website.yml`:
+Create `.github/workflows/deploy.yml`:
 
 ```yaml
 name: Deploy Acidni Website
 
 on:
   push:
-    branches: [main]
-    paths:
-      - 'acidni-website/**'
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -109,22 +107,22 @@ jobs:
           cache-dependency-path: acidni-website/package-lock.json
 
       - name: Install dependencies
-        working-directory: acidni-website
         run: npm ci
 
       - name: Build
-        working-directory: acidni-website
         run: npm run build
 
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.ACIDNI_WEBSITE_DEPLOY_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          action: "upload"
-          app_location: "acidni-website"
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          app_location: "/"
+          api_location: "api"
           output_location: "out"
           skip_app_build: true
+
+      - name: Include SWA routing config in artifact
+        run: cp staticwebapp.config.json out/staticwebapp.config.json
 ```
 
 ---
@@ -245,3 +243,49 @@ npx serve out
 - [Next.js Static Export](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
 - [Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/)
 - [SWA CLI](https://github.com/Azure/static-web-apps-cli)
+
+---
+
+## CI/CD Quick Setup (Windows)
+
+Use these one-time steps to wire up GitHub Actions deployment to Azure Static Web Apps.
+
+1) Fetch the SWA deployment token
+
+```powershell
+# Option A: Using Azure CLI (recommended)
+az staticwebapp secrets list `
+  --name swa-acidni-website `
+  --resource-group rg-prod-acidni-mktg-web `
+  --query "properties.apiKey" -o tsv > tmp_deployment_token.txt
+```
+
+2) Create the GitHub secret
+
+```powershell
+# Requires GitHub CLI: https://cli.github.com and gh auth login
+./scripts/setup-gh-secret.ps1 -Repo "Acidni-LLC/acidni-website"
+```
+
+3) Add remote and push to trigger the workflow
+
+```powershell
+# If the GitHub repo already exists
+./scripts/add-remote-push.ps1 -RepoUrl "https://github.com/Acidni-LLC/acidni-website.git" -Branch "master"
+
+# If the repo is new, create it first from the GitHub UI or via gh:
+# gh repo create Acidni-LLC/acidni-website --public --source . --remote origin --push
+```
+
+4) Verify deployment
+
+```powershell
+# Open Actions to watch the workflow
+gh run list -R Acidni-LLC/acidni-website
+```
+
+Notes:
+- Ensure the workflow at .github/workflows/deploy.yml is present.
+- The workflow expects the build output in 'out/' (Next.js export).
+- staticwebapp.config.json is copied into out/ during the workflow to ensure routing (e.g., /feedback) is honored.
+- tmp_deployment_token.txt is gitignored to prevent committing secrets.
