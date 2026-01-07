@@ -1,0 +1,124 @@
+﻿@page "/contact"
+@inject IHttpClientFactory HttpFactory
+
+<PageTitle>Contact - Acidni LLC</PageTitle>
+
+<div class="min-h-screen pt-20">
+    <section class="section-padding bg-slate-900">
+        <div class="container-custom">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Let''s <span class="gradient-text">Talk</span></h1>
+                <p class="text-xl text-slate-400">Ready to transform your technology? We would love to hear about your project.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-slate-950">
+        <div class="container-custom">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-acidni-500/20 flex items-center justify-center flex-shrink-0"><span class="text-xl"></span></div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Email</h4>
+                                <a href="mailto:contact@acidni.net" class="text-acidni-400 hover:text-acidni-300">contact@acidni.net</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0"><span class="text-xl"></span></div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Location</h4>
+                                <p class="text-slate-400">4255 Benedict St<br/>Hastings, FL 32145</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <h4 class="font-semibold mb-4">Quick Links</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <a href="/services" class="text-sm text-slate-400 hover:text-white transition-colors"> Our Services</a>
+                            <a href="/products" class="text-sm text-slate-400 hover:text-white transition-colors"> Our Products</a>
+                            <a href="/case-studies" class="text-sm text-slate-400 hover:text-white transition-colors"> Case Studies</a>
+                            <a href="/about" class="text-sm text-slate-400 hover:text-white transition-colors"> About Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card p-8">
+                    @if (status == "success")
+                    {
+                        <div class="text-center py-12">
+                            <div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-3xl"></span></div>
+                            <h3 class="text-xl font-semibold mb-2">Message Sent!</h3>
+                            <p class="text-slate-400 mb-6">Thanks for reaching out. We will get back to you soon.</p>
+                            <button class="text-acidni-400 hover:text-acidni-300" @onclick='() => status = "idle"'>Send another message</button>
+                        </div>
+                    }
+                    else
+                    {
+                        <EditForm Model="form" OnValidSubmit="SubmitAsync" class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Name *</label>
+                                <InputText @bind-Value="form.Name" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-acidni-500" placeholder="Your name" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email *</label>
+                                <InputText @bind-Value="form.Email" type="email" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-acidni-500" placeholder="you@company.com" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Company</label>
+                                <InputText @bind-Value="form.Company" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-acidni-500" placeholder="Your company" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">What can we help with?</label>
+                                <InputSelect @bind-Value="form.Service" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-acidni-500">
+                                    <option value="">Select a service...</option>
+                                    <option value="AI Consulting">AI Consulting & Strategy</option>
+                                    <option value="App Modernization">Application Modernization</option>
+                                    <option value="Custom Development">Custom Development</option>
+                                    <option value="CannaTech">CannaTech Consulting</option>
+                                    <option value="Other">Other / Not Sure</option>
+                                </InputSelect>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message *</label>
+                                <InputTextArea @bind-Value="form.Message" required rows="4" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-acidni-500 resize-none" placeholder="Tell us about your project..." />
+                            </div>
+                            @if (!string.IsNullOrEmpty(errorMessage))
+                            {
+                                <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400">@errorMessage</div>
+                            }
+                            <button type="submit" disabled="@submitting" class="w-full btn-primary py-4">
+                                @(submitting ? "Sending..." : "Send Message")
+                            </button>
+                        </EditForm>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@code {
+    class ContactForm { public string Name { get; set; } = ""; public string Email { get; set; } = ""; public string Company { get; set; } = ""; public string Service { get; set; } = ""; public string Message { get; set; } = ""; }
+    ContactForm form = new();
+    bool submitting = false;
+    string status = "idle";
+    string? errorMessage;
+
+    async Task SubmitAsync()
+    {
+        submitting = true;
+        errorMessage = null;
+        try
+        {
+            var client = HttpFactory.CreateClient();
+            var resp = await client.PostAsJsonAsync("/api/contact", new { name = form.Name, email = form.Email, company = form.Company, service = form.Service, message = form.Message });
+            if (!resp.IsSuccessStatusCode) { errorMessage = "Failed to send. Please email contact@acidni.net directly."; return; }
+            status = "success";
+            form = new();
+        }
+        catch { errorMessage = "An error occurred. Please email contact@acidni.net directly."; }
+        finally { submitting = false; }
+    }
+}

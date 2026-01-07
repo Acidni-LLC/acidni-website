@@ -1,0 +1,150 @@
+@inherits LayoutComponentBase
+
+<div class="min-h-screen bg-slate-950 text-slate-50">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800/50">
+        <nav class="container-custom flex items-center justify-between py-4">
+            <!-- Logo -->
+            <a href="/" class="flex items-center">
+                <img src="/images/logo-dark.svg" alt="Acidni LLC" width="180" height="45" class="h-10 w-auto" />
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/services" class="text-slate-300 hover:text-white transition-colors font-medium">Services</a>
+                <a href="/products" class="text-slate-300 hover:text-white transition-colors font-medium">Products</a>
+                <a href="/insights" class="text-slate-300 hover:text-white transition-colors font-medium">Insights</a>
+                <a href="/about" class="text-slate-300 hover:text-white transition-colors font-medium">About</a>
+                <a href="/contact" class="text-slate-300 hover:text-white transition-colors font-medium">Contact</a>
+                <a href="/contact" class="btn-primary text-sm py-2 px-4">Get Started</a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button type="button" class="md:hidden p-2 text-slate-300 hover:text-white" @onclick="ToggleMobileMenu" aria-label="Toggle menu">
+                @if (mobileMenuOpen)
+                {
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                }
+                else
+                {
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                }
+            </button>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        @if (mobileMenuOpen)
+        {
+            <div class="md:hidden bg-slate-900/95 backdrop-blur-md border-b border-slate-800">
+                <div class="container-custom py-4 space-y-4">
+                    <a href="/services" class="block text-slate-300 hover:text-white transition-colors font-medium py-2" @onclick="CloseMobileMenu">Services</a>
+                    <a href="/products" class="block text-slate-300 hover:text-white transition-colors font-medium py-2" @onclick="CloseMobileMenu">Products</a>
+                    <a href="/insights" class="block text-slate-300 hover:text-white transition-colors font-medium py-2" @onclick="CloseMobileMenu">Insights</a>
+                    <a href="/about" class="block text-slate-300 hover:text-white transition-colors font-medium py-2" @onclick="CloseMobileMenu">About</a>
+                    <a href="/contact" class="block text-slate-300 hover:text-white transition-colors font-medium py-2" @onclick="CloseMobileMenu">Contact</a>
+                    <a href="/contact" class="btn-primary text-sm py-2 px-4 w-full text-center" @onclick="CloseMobileMenu">Get Started</a>
+                </div>
+            </div>
+        }
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        @Body
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800">
+        <div class="container-custom py-12 lg:py-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
+                <!-- Logo & Description -->
+                <div class="col-span-2 md:col-span-4 lg:col-span-1">
+                    <a href="/" class="flex items-center mb-4">
+                        <img src="/images/logo-dark.svg" alt="Acidni LLC" width="150" height="38" class="h-9 w-auto" />
+                    </a>
+                    <p class="text-slate-400 text-sm mb-4">
+                        Enterprise AI adoption, application modernization, and custom software development.
+                    </p>
+                    <p class="text-slate-500 text-sm">
+                        contact@acidni.net
+                    </p>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/services/ai-consulting" class="text-slate-400 hover:text-white text-sm transition-colors">AI Consulting</a></li>
+                        <li><a href="/services/app-modernization" class="text-slate-400 hover:text-white text-sm transition-colors">App Modernization</a></li>
+                        <li><a href="/services/custom-development" class="text-slate-400 hover:text-white text-sm transition-colors">Custom Development</a></li>
+                        <li><a href="/services/cannatech" class="text-slate-400 hover:text-white text-sm transition-colors">CannaTech Consulting</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Products</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/products/accm" class="text-slate-400 hover:text-white text-sm transition-colors">ACCM - Copilot Chat Manager</a></li>
+                        <li><a href="/products/terprint" class="text-slate-400 hover:text-white text-sm transition-colors">Terprint</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/about" class="text-slate-400 hover:text-white text-sm transition-colors">About</a></li>
+                        <li><a href="/case-studies" class="text-slate-400 hover:text-white text-sm transition-colors">Case Studies</a></li>
+                        <li><a href="/contact" class="text-slate-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal & External -->
+                <div>
+                    <h3 class="font-semibold text-white mb-4">Legal & Connect</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/privacy" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms" class="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a></li>
+                        <li>
+                            <a href="https://marketplace.visualstudio.com/publishers/AcidniLLC" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white text-sm transition-colors inline-flex items-center gap-1">
+                                VS Marketplace
+                                <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm">
+                    © @DateTime.UtcNow.Year Acidni LLC. All rights reserved.
+                </p>
+                <p class="text-slate-500 text-sm">
+                    4255 Benedict St, Hastings, FL 32145
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+@code {
+    private bool mobileMenuOpen = false;
+
+    private void ToggleMobileMenu()
+    {
+        mobileMenuOpen = !mobileMenuOpen;
+    }
+
+    private void CloseMobileMenu()
+    {
+        mobileMenuOpen = false;
+    }
+}

@@ -1,0 +1,291 @@
+@page "/feedback"
+@inject IHttpClientFactory HttpFactory
+@inject NavigationManager Navigation
+
+<PageTitle>Feedback - Acidni LLC</PageTitle>
+
+<div class="min-h-screen pt-20 bg-slate-950">
+    <div class="container-custom section-padding">
+        <div class="max-w-2xl mx-auto">
+            @if (success)
+            {
+                <!-- Success State -->
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
+                        <span class="text-4xl">✅</span>
+                    </div>
+                    <h1 class="text-3xl font-bold mb-4">Thank You!</h1>
+                    <p class="text-slate-400 mb-6">
+                        Your @GetTypeLabel(form.Type).ToLower() has been submitted successfully.
+                        @if (!string.IsNullOrEmpty(ticketId))
+                        {
+                            <span class="block mt-2 text-acidni-400">
+                                Reference ID: <code class="bg-slate-800 px-2 py-1 rounded">@ticketId</code>
+                            </span>
+                        }
+                    </p>
+                    <p class="text-slate-500 text-sm mb-8">
+                        Our team will review your submission and may reach out if we need more information.
+                    </p>
+                    <button @onclick="ResetForm" class="btn-primary">
+                        Submit Another
+                    </button>
+                </div>
+            }
+            else
+            {
+                <!-- Header -->
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl font-bold mb-4">
+                        App & Add-in Feedback
+                    </h1>
+                    <p class="text-slate-400">
+                        Help us improve our apps and add-ins by sharing your thoughts, reporting issues, or requesting features.
+                    </p>
+                    @if (!string.IsNullOrEmpty(appName) && appName != "Unknown")
+                    {
+                        <div class="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-sm text-slate-400">
+                            <span>📱</span>
+                            <span>@appName</span>
+                            @if (!string.IsNullOrEmpty(appVersion) && appVersion != "Unknown")
+                            {
+                                <span class="text-slate-500">v@appVersion</span>
+                            }
+                        </div>
+                    }
+                </div>
+
+                <!-- Type Selector -->
+                <div class="grid grid-cols-3 gap-3 mb-8">
+                    <button type="button" @onclick="@(() => form.Type = "bug")"
+                            class="@GetTypeSelectorClass("bug")">
+                        <span class="text-2xl block mb-2">🐛</span>
+                        <span class="@GetTypeLabelClass("bug")">Bug / Issue</span>
+                    </button>
+                    <button type="button" @onclick="@(() => form.Type = "feedback")"
+                            class="@GetTypeSelectorClass("feedback")">
+                        <span class="text-2xl block mb-2">💬</span>
+                        <span class="@GetTypeLabelClass("feedback")">Feedback / Comment</span>
+                    </button>
+                    <button type="button" @onclick="@(() => form.Type = "feature")"
+                            class="@GetTypeSelectorClass("feature")">
+                        <span class="text-2xl block mb-2">✨</span>
+                        <span class="@GetTypeLabelClass("feature")">Feature Request</span>
+                    </button>
+                </div>
+
+                <!-- Form -->
+                <EditForm Model="form" OnValidSubmit="SubmitAsync" class="space-y-6">
+                    <DataAnnotationsValidator />
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2">
+                            Email Address <span class="text-slate-500">(optional)</span>
+                        </label>
+                        <InputText id="email" @bind-Value="form.Email"
+                                   class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-acidni-500 focus:ring-1 focus:ring-acidni-500 outline-none"
+                                   placeholder="your@email.com (for follow-up)" />
+                    </div>
+
+                    <!-- Title -->
+                    <div>
+                        <label for="title" class="block text-sm font-medium text-slate-300 mb-2">
+                            Title <span class="text-red-400">*</span>
+                        </label>
+                        <InputText id="title" @bind-Value="form.Title" required
+                                   class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-acidni-500 focus:ring-1 focus:ring-acidni-500 outline-none"
+                                   placeholder="@GetTitlePlaceholder(form.Type)" />
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-slate-300 mb-2">
+                            Description <span class="text-red-400">*</span>
+                        </label>
+                        <InputTextArea id="description" @bind-Value="form.Description" required rows="6"
+                                       class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-acidni-500 focus:ring-1 focus:ring-acidni-500 outline-none resize-none"
+                                       placeholder="@GetDescriptionPlaceholder(form.Type)" />
+                    </div>
+
+                    <!-- Feature Request Terms -->
+                    @if (form.Type == "feature")
+                    {
+                        <div class="p-4 rounded-lg bg-amber-500/10 border border-amber-500/30">
+                            <label class="flex items-start gap-3 cursor-pointer">
+                                <InputCheckbox @bind-Value="form.AcceptTerms"
+                                               class="mt-1 w-4 h-4 rounded border-slate-600 bg-slate-700 text-acidni-500 focus:ring-acidni-500" />
+                                <span class="text-sm text-slate-300">
+                                    I understand that by submitting this feature request, I am granting Acidni LLC
+                                    a perpetual, royalty-free, non-exclusive license to use, modify, and implement
+                                    this idea in any products or services without compensation or attribution.
+                                    I release all intellectual property rights related to this submission.
+                                </span>
+                            </label>
+                        </div>
+                    }
+
+                    <!-- Error Message -->
+                    @if (!string.IsNullOrEmpty(error))
+                    {
+                        <div class="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400">
+                            @error
+                        </div>
+                    }
+
+                    <!-- Submit Button -->
+                    <button type="submit" disabled="@submitting"
+                            class="w-full btn-primary py-4 @(submitting ? "opacity-50 cursor-not-allowed" : "")">
+                        @if (submitting)
+                        {
+                            <span class="flex items-center justify-center gap-2">
+                                <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" />
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                </svg>
+                                Submitting...
+                            </span>
+                        }
+                        else
+                        {
+                            <span>Submit @GetTypeLabel(form.Type)</span>
+                        }
+                    </button>
+                </EditForm>
+
+                <!-- Metadata Display (collapsed by default) -->
+                <details class="mt-8 text-sm">
+                    <summary class="text-slate-500 cursor-pointer hover:text-slate-400">
+                        View collected metadata
+                    </summary>
+                    <div class="mt-3 p-4 rounded-lg bg-slate-800/50 border border-slate-700">
+                        <pre class="text-xs text-slate-400 overflow-x-auto">
+{
+  "app": "@appName",
+  "version": "@appVersion",
+  "source": "@source"
+}</pre>
+                    </div>
+                </details>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    class FeedbackForm
+    {
+        public string Type { get; set; } = "feedback";
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public bool AcceptTerms { get; set; } = false;
+    }
+
+    bool submitting = false;
+    bool success = false;
+    string ticketId = string.Empty;
+    string? error;
+    FeedbackForm form = new();
+
+    // Metadata from query string
+    string appName = "Unknown";
+    string appVersion = "Unknown";
+    string source = "web";
+
+    protected override void OnInitialized()
+    {
+        var uri = new Uri(Navigation.Uri);
+        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        appName = query["app"] ?? "Unknown";
+        appVersion = query["version"] ?? "Unknown";
+        source = query["source"] ?? "web";
+    }
+
+    string GetTypeSelectorClass(string type) =>
+        form.Type == type
+            ? "p-4 rounded-lg border-2 transition-all text-center border-acidni-500 bg-acidni-500/10"
+            : "p-4 rounded-lg border-2 transition-all text-center border-slate-700 hover:border-slate-600 bg-slate-800/50";
+
+    string GetTypeLabelClass(string type) =>
+        form.Type == type
+            ? "text-sm font-medium text-white"
+            : "text-sm font-medium text-slate-400";
+
+    string GetTypeLabel(string type) => type switch
+    {
+        "bug" => "Bug / Issue",
+        "feature" => "Feature Request",
+        _ => "Feedback / Comment"
+    };
+
+    string GetTitlePlaceholder(string type) => type switch
+    {
+        "bug" => "Brief description of the bug",
+        "feature" => "Name of the feature",
+        _ => "Subject of your feedback"
+    };
+
+    string GetDescriptionPlaceholder(string type) => type switch
+    {
+        "bug" => "Describe the issue you encountered...",
+        "feature" => "Describe the feature you would like to see...",
+        _ => "Share your thoughts, suggestions, or comments..."
+    };
+
+    void ResetForm()
+    {
+        success = false;
+        ticketId = string.Empty;
+        error = null;
+        form = new FeedbackForm();
+    }
+
+    async Task SubmitAsync()
+    {
+        // Validate feature request terms
+        if (form.Type == "feature" && !form.AcceptTerms)
+        {
+            error = "Please accept the terms for feature requests.";
+            return;
+        }
+
+        submitting = true;
+        error = null;
+        try
+        {
+            var client = HttpFactory.CreateClient();
+            var payload = new
+            {
+                type = form.Type,
+                title = form.Title,
+                description = form.Description,
+                email = form.Email,
+                metadata = new
+                {
+                    app = appName,
+                    version = appVersion,
+                    source = source
+                },
+                recaptchaToken = string.Empty
+            };
+            var resp = await client.PostAsJsonAsync("/api/feedback", payload);
+            var json = await resp.Content.ReadFromJsonAsync<System.Text.Json.JsonElement>();
+            if (!resp.IsSuccessStatusCode)
+            {
+                error = json.TryGetProperty("error", out var e) ? e.GetString() : "Submission failed";
+                return;
+            }
+            success = true;
+            ticketId = json.TryGetProperty("ticketId", out var t) ? t.GetString() ?? string.Empty : string.Empty;
+        }
+        catch (Exception ex)
+        {
+            error = ex.Message;
+        }
+        finally
+        {
+            submitting = false;
+        }
+    }
+}

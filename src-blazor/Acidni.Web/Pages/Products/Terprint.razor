@@ -1,0 +1,309 @@
+﻿@namespace Acidni.Web.Pages.ProductDetails
+@page "/products/terprint"
+
+<PageTitle>Terprint API Platform - Cannabis Data Intelligence | Acidni LLC</PageTitle>
+
+<div class="min-h-screen pt-20">
+    <!-- Hero -->
+    <section class="section-padding bg-slate-900">
+        <div class="container-custom">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-sm font-medium">API Platform</span>
+                        <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm font-medium">Azure</span>
+                        <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-sm font-medium">AI-Powered</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"><span class="gradient-text">Terprint</span> API Platform</h1>
+                    <p class="text-xl text-slate-400 mb-4">The most comprehensive cannabis data and AI platform available. <strong class="text-white">7 powerful APIs</strong> with over <strong class="text-white">150 endpoints</strong>.</p>
+                    <p class="text-slate-400 mb-8">Real-time menu data, lab results, strain genetics, AI recommendations, and beautiful infographics  everything you need to build cannabis applications.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://apim-terprint-dev.developer.azure-api.net" target="_blank" rel="noopener noreferrer" class="btn-primary">Get API Trial Key</a>
+                        <a href="#apis" class="btn-secondary">Explore APIs</a>
+                        <a href="/products/terprint/offers" class="btn-secondary">View All Offers</a>
+                    </div>
+                </div>
+                <div class="card p-8 bg-gradient-to-br from-emerald-900/30 to-slate-900">
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-emerald-400">7</div>
+                            <div class="text-slate-400 text-sm">APIs</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-acidni-400">150+</div>
+                            <div class="text-slate-400 text-sm">Endpoints</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-purple-400">10K+</div>
+                            <div class="text-slate-400 text-sm">Strains</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-4xl font-bold text-amber-400">Real-time</div>
+                            <div class="text-slate-400 text-sm">Updates</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trial Banner -->
+    <section class="bg-emerald-900/30 border-y border-emerald-500/30 py-6">
+        <div class="container-custom">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-semibold text-emerald-300">Start Building Today</h3>
+                    <p class="text-slate-400">15-day trial  1,000 API calls  Full access to all 7 APIs</p>
+                </div>
+                <a href="https://apim-terprint-dev.developer.azure-api.net" target="_blank" rel="noopener noreferrer" class="btn-primary bg-emerald-500 hover:bg-emerald-600">Get Your Free Trial Key</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The 7 APIs -->
+    <section id="apis" class="section-padding bg-slate-950">
+        <div class="container-custom">
+            <h2 class="text-3xl font-bold text-center mb-4">The <span class="gradient-text">7 APIs</span></h2>
+            <p class="text-slate-400 text-center mb-12 max-w-2xl mx-auto">Each API is designed for specific use cases. Mix and match to build exactly what you need.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- AI Chat -->
+                <div class="card p-6 hover:border-emerald-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">AI Chat API</h3>
+                            <span class="text-emerald-400 text-sm">Conversational</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Natural language product discovery. "What strain is good for sleep?" Get intelligent recommendations instantly.</p>
+                    <ul class="text-slate-500 text-xs space-y-1">
+                        <li> Conversational AI queries</li>
+                        <li> Mood-based recommendations</li>
+                        <li> User preference tracking</li>
+                        <li> Email & SMS notifications</li>
+                    </ul>
+                </div>
+
+                <!-- AI Deals -->
+                <div class="card p-6 hover:border-amber-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">AI Deals API</h3>
+                            <span class="text-amber-400 text-sm">Price Intelligence</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Real-time deal tracking and price alerts. Find the best value and never miss a sale on your favorites.</p>
+                    <ul class="text-slate-500 text-xs space-y-1">
+                        <li> Price comparison across dispensaries</li>
+                        <li> Custom price alerts</li>
+                        <li> Price history & trends</li>
+                        <li> Daily deal digest</li>
+                    </ul>
+                </div>
+
+                <!-- AI Recommender -->
+                <div class="card p-6 hover:border-purple-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">AI Recommender API</h3>
+                            <span class="text-purple-400 text-sm">Genetics & ML</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Deep genetics database and ML-powered recommendations. Explore lineage, awards, and find similar strains.</p>
+                    <ul class="text-slate-500 text-xs space-y-1">
+                        <li> Strain genetics & lineage trees</li>
+                        <li> Award-winning strain data</li>
+                        <li> Personalized ML recommendations</li>
+                        <li> Feedback learning loop</li>
+                    </ul>
+                </div>
+
+                <!-- Data API -->
+                <div class="card p-6 hover:border-blue-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Data API</h3>
+                            <span class="text-blue-400 text-sm">Core Data</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">The foundation  comprehensive cannabis data including batches, strains, terpenes, and cannabinoids.</p>
+                    <ul class="text-slate-500 text-xs space-y-1">
+                        <li> Full batch & COA data</li>
+                        <li> Terpene profiles</li>
+                        <li> Cannabinoid analysis</li>
+                        <li> Dispensary catalog</li>
+                    </ul>
+                </div>
+
+                <!-- Infographics -->
+                <div class="card p-6 hover:border-pink-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-pink-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Infographics API</h3>
+                            <span class="text-pink-400 text-sm">Visualizations</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Beautiful, shareable visualizations. Terpene wheels, strain cards, COA summaries in PNG, SVG, and interactive formats.</p>
+                    <ul class="text-slate-500 text-xs space-y-1">
+                        <li> Strain profile cards</li>
+                        <li> Terpene wheel charts</li>
+                        <li> Interactive comparisons</li>
+                        <li> Custom infographic generator</li>
+                    </ul>
+                </div>
+
+                <!-- Stock API -->
+                <div class="card p-6 hover:border-cyan-500/50 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-cyan-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Stock API</h3>
+                            <span class="text-cyan-400 text-sm">Live Inventory</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Real-time dispensary inventory. Know what's in stock before your customers ask.</p>
+                    <ul class="text-slate-500 text-xs space-y-1">
+                        <li> Cross-dispensary search</li>
+                        <li> Real-time stock checks</li>
+                        <li> Batch-to-inventory matching</li>
+                        <li> Bulk availability lookup</li>
+                    </ul>
+                </div>
+
+                <!-- AI Lab -->
+                <div class="card p-6 hover:border-orange-500/50 transition-colors md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">AI Lab API</h3>
+                            <span class="text-orange-400 text-sm">Quality Analytics</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-4">Advanced lab analytics, quality auditing, and data intelligence. Detect anomalies and ensure consistency.</p>
+                    <ul class="text-slate-500 text-xs space-y-1">
+                        <li> Lab data analysis & comparison</li>
+                        <li> Quality anomaly detection</li>
+                        <li> Strain consistency tracking</li>
+                        <li> Data auditing & cleanup</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="section-padding bg-slate-900">
+        <div class="container-custom">
+            <h2 class="text-3xl font-bold text-center mb-4">Build <span class="gradient-text">Anything</span></h2>
+            <p class="text-slate-400 text-center mb-12 max-w-2xl mx-auto">Real businesses are already building with Terprint.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6">
+                    <h3 class="font-semibold mb-2"> E-Commerce Discovery</h3>
+                    <p class="text-slate-400 text-sm">AI-powered product search for dispensary websites. 40% increase in conversions.</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-semibold mb-2"> Mobile Deal Alerts</h3>
+                    <p class="text-slate-400 text-sm">Push notifications when favorites go on sale. 3x engagement vs. generic emails.</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-semibold mb-2"> Strain Education</h3>
+                    <p class="text-slate-400 text-sm">Lineage trees and terpene data for patient education. 85% higher satisfaction.</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-semibold mb-2"> Analytics Dashboards</h3>
+                    <p class="text-slate-400 text-sm">Quality metrics and competitive pricing intelligence for dispensary chains.</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-semibold mb-2"> Content Marketing</h3>
+                    <p class="text-slate-400 text-sm">Auto-generate strain cards and infographics. 10x content output.</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="font-semibold mb-2"> Medical Recommendations</h3>
+                    <p class="text-slate-400 text-sm">AI-powered strain matching based on symptoms. Patients find relief 3x faster.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section-padding bg-slate-950">
+        <div class="container-custom">
+            <h2 class="text-3xl font-bold text-center mb-12">Simple <span class="gradient-text">Pricing</span></h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="card p-6 text-center">
+                    <h3 class="font-semibold mb-2">Trial</h3>
+                    <div class="text-3xl font-bold text-emerald-400 mb-2">Free</div>
+                    <p class="text-slate-500 text-sm mb-4">15 days</p>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>1,000 requests</li>
+                        <li>All 7 APIs</li>
+                        <li>10 req/min</li>
+                    </ul>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="font-semibold mb-2">Starter</h3>
+                    <div class="text-3xl font-bold text-acidni-400 mb-2">$99</div>
+                    <p class="text-slate-500 text-sm mb-4">per month</p>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>10,000 requests</li>
+                        <li>All 7 APIs</li>
+                        <li>100 req/min</li>
+                    </ul>
+                </div>
+                <div class="card p-6 text-center border-emerald-500/30">
+                    <h3 class="font-semibold mb-2">Professional</h3>
+                    <div class="text-3xl font-bold text-emerald-400 mb-2">$499</div>
+                    <p class="text-slate-500 text-sm mb-4">per month</p>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>100,000 requests</li>
+                        <li>All 7 APIs</li>
+                        <li>1,000 req/min</li>
+                    </ul>
+                </div>
+                <div class="card p-6 text-center">
+                    <h3 class="font-semibold mb-2">Enterprise</h3>
+                    <div class="text-3xl font-bold text-purple-400 mb-2">Custom</div>
+                    <p class="text-slate-500 text-sm mb-4">contact us</p>
+                    <ul class="text-slate-400 text-sm space-y-2">
+                        <li>Unlimited requests</li>
+                        <li>Dedicated support</li>
+                        <li>10,000 req/min</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900">
+        <div class="container-custom text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Build?</h2>
+            <p class="text-emerald-100 max-w-2xl mx-auto mb-10">Get your free trial key and start building cannabis applications in minutes. Full documentation and code examples included.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://apim-terprint-dev.developer.azure-api.net" target="_blank" rel="noopener noreferrer" class="btn-primary bg-white text-slate-900 hover:bg-slate-100">Get Trial API Key</a>
+                <a href="/contact" class="btn-secondary border-white/30 text-white hover:bg-white/10">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+</div>
