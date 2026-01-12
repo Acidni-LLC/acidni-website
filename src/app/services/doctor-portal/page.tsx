@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
@@ -186,7 +186,7 @@ export default function DoctorPortalPage() {
                   <span className="text-red-500 text-xl"></span>
                   <div>
                     <strong className="text-white">Product Overwhelm</strong>
-                    <p className="text-slate-400 text-sm">Thousands of products with varying THC/CBD ratios, terpene profiles, and delivery methods.</p>
+                    <p className="text-slate-400 text-sm">20 terpenes (0-5% each) x 8 cannabinoids (0-30% each) = <span className="text-red-400 font-bold">10<sup>46</sup> possible combinations</span>. That's more than all FDA-approved drugs by a factor of 10<sup>42</sup>.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -408,3 +408,6 @@ export default function DoctorPortalPage() {
     </div>
   )
 }
+
+
+
