@@ -385,6 +385,81 @@ export default function DoctorPortalPage() {
         </div>
       </section>
 
+      {/* Developer Integration Section */}
+      <section className="section-padding bg-slate-900">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <span className="text-cyan-400 font-medium">For Developers</span>
+            <h2 className="text-3xl sm:text-4xl font-bold mt-2 mb-4">
+              Build with CDES Python SDKs
+            </h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              Integrate cannabis medical data into your applications with our open-source Python packages.
+              All packages are available on PyPI.
+            </p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            {/* Install Command */}
+            <div className="card p-6 bg-slate-800 mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-cyan-400 font-mono text-sm">Quick Install</span>
+                <span className="text-xs text-slate-500">pip</span>
+              </div>
+              <pre className="bg-slate-950 rounded-lg p-4 overflow-x-auto">
+                <code className="text-green-400 font-mono">pip install cdes-m cdes-gdpr</code>
+              </pre>
+            </div>
+            
+            {/* Package Grid */}
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
+              <a 
+                href="https://pypi.org/project/cdes-m/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="card p-4 bg-slate-800 hover:bg-slate-700 transition-colors group"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-white group-hover:text-cyan-400 transition-colors">cdes-m</h4>
+                    <p className="text-sm text-slate-400">Medical cannabis data models</p>
+                  </div>
+                  <span className="text-xs bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded">v1.0.0</span>
+                </div>
+              </a>
+              
+              <a 
+                href="https://pypi.org/project/cdes-gdpr/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="card p-4 bg-slate-800 hover:bg-slate-700 transition-colors group"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-white group-hover:text-cyan-400 transition-colors">cdes-gdpr</h4>
+                    <p className="text-sm text-slate-400">GDPR compliance for cannabis data</p>
+                  </div>
+                  <span className="text-xs bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded">v1.0.0</span>
+                </div>
+              </a>
+            </div>
+            
+            {/* View All Link */}
+            <div className="text-center">
+              <Link 
+                href="/products/cdes" 
+                className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2"
+              >
+                View All CDES Packages
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="section-padding bg-gradient-to-br from-blue-900 to-cyan-900">
         <div className="container-custom text-center">
