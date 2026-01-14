@@ -65,6 +65,35 @@ const products = [
     },
   },
   {
+    name: 'Terprint Doctor Portal',
+    tagline: 'Cannabis Medicine Intelligence',
+    description:
+      'Evidence-based cannabis recommendations for healthcare providers. Lab-verified COA data from all Florida dispensaries, AI-powered product matching, and patient portal.',
+    href: '/products/terprint-doctor-portal',
+    icon: '🩺',
+    badge: '✓ Live',
+    badgeClass: 'bg-emerald-500/20 text-emerald-300',
+    gradient: 'from-cyan-500 to-blue-500',
+    published: 'Live at doctor.terprint.com',
+    features: [
+      'Lab-verified COA data search',
+      'AI-powered recommendations',
+      'Patient portal included',
+      'Per-provider pricing from $79/mo',
+    ],
+    cta: {
+      primary: {
+        text: 'Start Free Trial',
+        href: 'https://doctor.terprint.com',
+        external: true,
+      },
+      secondary: {
+        text: 'Learn More',
+        href: '/products/terprint-doctor-portal',
+      },
+    },
+  },
+  {
     name: 'Acidni AI Chat Expert',
     tagline: 'Expert AI workflows for developers',
     description:

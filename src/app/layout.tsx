@@ -85,6 +85,27 @@ const structuredData = {
         '@id': 'https://www.acidni.net/#organization',
       },
     },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://www.acidni.net/#terprint-doctor-portal-product',
+      name: 'Terprint Doctor Portal',
+      description:
+        'Cannabis medicine intelligence platform for healthcare providers. Lab-verified COA data, AI-powered recommendations, and patient portal for Florida medical marijuana physicians.',
+      applicationCategory: 'HealthApplication',
+      operatingSystem: 'Web',
+      url: 'https://www.acidni.net/products/terprint-doctor-portal',
+      brand: {
+        '@id': 'https://www.acidni.net/#organization',
+      },
+      offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '79',
+        highPrice: '999',
+        priceCurrency: 'USD',
+        offerCount: '6',
+        url: 'https://doctor.terprint.com',
+      },
+    },
   ],
 } as const
 
