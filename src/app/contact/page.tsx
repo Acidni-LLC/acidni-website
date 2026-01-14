@@ -133,17 +133,6 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0">
-                    <span className="text-xl">📍</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Location</h4>
-                    <p className="text-slate-400">4255 Benedict St</p>
-                    <p className="text-slate-400">Hastings, FL 32145</p>
-                  </div>
-                </div>
               </div>
 
               {/* Quick Links */}

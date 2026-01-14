@@ -255,7 +255,6 @@ export default function TermsPage() {
               <ul className="text-slate-300 space-y-2">
                 <li><strong>Email:</strong> <a href="mailto:legal@acidni.net" className="text-acidni-400 hover:text-acidni-300">legal@acidni.net</a></li>
                 <li><strong>General Contact:</strong> <a href="mailto:contact@acidni.net" className="text-acidni-400 hover:text-acidni-300">contact@acidni.net</a></li>
-                <li><strong>Address:</strong> 4255 Benedict St, Hastings, FL 32145</li>
               </ul>
             </div>
 
