@@ -66,9 +66,9 @@ const products = [
   },
   {
     name: 'Terprint Doctor Portal',
-    tagline: 'Cannabis Medicine Intelligence',
+    tagline: 'FDA-Ready Clinical Decision Support with FHIR R4 EHR Integration',
     description:
-      'Evidence-based cannabis recommendations for healthcare providers. Lab-verified COA data from all Florida dispensaries, AI-powered product matching, and patient portal.',
+      'Evidence-based cannabis prescribing platform connecting Epic, Cerner, Meditech, and NextGen EHRs. 6 interactive D3 visualizations, AI-powered recommendations, and lab-verified COA data—now live at doctor.terprint.com.',
     href: '/products/terprint-doctor-portal',
     icon: '🩺',
     badge: '✓ Live',
@@ -76,10 +76,10 @@ const products = [
     gradient: 'from-cyan-500 to-blue-500',
     published: 'Live at doctor.terprint.com',
     features: [
-      'Lab-verified COA data search',
-      'AI-powered recommendations',
-      'Patient portal included',
-      'Per-provider pricing from $79/mo',
+      '🏥 4 Major EHRs Supported',
+      '📊 6 D3.js Clinical Charts',
+      '⚖️ FDA SaMD Compliant',
+      '🔒 HIPAA + ISO 13485',
     ],
     cta: {
       primary: {

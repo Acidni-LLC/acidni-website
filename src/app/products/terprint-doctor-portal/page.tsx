@@ -2,41 +2,47 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Terprint Doctor Portal - Cannabis Medicine Intelligence',
-  description: 'Evidence-based cannabis recommendations for healthcare providers. Lab-verified COA data, terpene profiles, AI-powered product matching, and patient portal for Florida medical marijuana physicians.',
-  keywords: ['cannabis medicine', 'doctor portal', 'MMJ physician', 'terpene profiles', 'COA data', 'cannabis recommendations', 'Florida medical marijuana'],
+  title: 'Terprint Doctor Portal | FDA-Ready Cannabis Prescribing Platform with FHIR R4 EHR Integration',
+  description: 'Clinical decision support platform with Epic, Cerner, Meditech, NextGen EHR connectivity via FHIR R4. Lab-verified COA data, AI recommendations, 6 D3 charts. ISO 13485, HIPAA compliant. Live at doctor.terprint.com.',
+  keywords: ['cannabis prescribing software', 'medical marijuana doctor portal', 'FHIR R4 integration', 'Epic MyChart cannabis', 'Cerner cannabis integration', 'clinical decision support', 'COA data', 'terpene analysis', 'FDA SaMD compliance', 'HIPAA cannabis software', 'ISO 13485 healthcare software', 'evidence-based cannabis medicine'],
+  openGraph: {
+    title: 'Terprint Doctor Portal - FDA-Ready Cannabis Prescribing Platform',
+    description: 'First cannabis CDS platform with FHIR R4 EHR integration. Connect Epic, Cerner, Meditech, NextGen. Live at doctor.terprint.com.',
+    url: 'https://acidni.net/products/terprint-doctor-portal',
+    type: 'website',
+  },
 }
 
 const features = [
   {
-    title: 'Lab-Verified COA Data',
-    description: 'Access Certificate of Analysis data from all Florida dispensaries. Real cannabinoid percentages and terpene profiles, not marketing estimates.',
-    icon: '🔬',
-  },
-  {
-    title: 'AI-Powered Recommendations',
-    description: 'Match patient symptoms to optimal terpene profiles using our evidence-based recommendation engine powered by published research.',
-    icon: '🤖',
-  },
-  {
-    title: 'Patient Portal',
-    description: 'Share recommendations directly with patients. They see exactly what you recommend on their phone with dispensary availability.',
-    icon: '📱',
-  },
-  {
-    title: 'Product Comparison',
-    description: 'Compare products side-by-side with spider charts and heatmaps. Find the best match for each patient\'s needs.',
-    icon: '📊',
-  },
-  {
-    title: 'Multi-Site Management',
-    description: 'Clinic chains can manage providers across unlimited locations with centralized admin, usage analytics, and role-based access.',
+    title: 'FHIR R4 + CDES-M EHR Integration',
+    description: 'Seamlessly connect with Epic MyChart, Cerner, Meditech, and NextGen via SMART on FHIR 2.1. Cannabis recommendations flow directly into patient health timelines.',
     icon: '🏥',
   },
   {
-    title: 'HIPAA Compliant',
-    description: 'Enterprise-grade security with Azure infrastructure, BAA included, and audit logging for healthcare compliance.',
-    icon: '🔒',
+    title: 'FDA SaMD Compliance Roadmap',
+    description: 'Clinical Decision Support (CDS) platform pursuing FDA clearance. ISO 13485 QMS implementation and transparent methodology with research citations.',
+    icon: '⚖️',
+  },
+  {
+    title: '6 Interactive D3.js Clinical Charts',
+    description: 'Symptom Efficacy Spider Chart, Terpene Radar, Symptom Trends, Product Match Bar Chart, Evidence Heatmap, and Cannabinoid Ratio Dial.',
+    icon: '📊',
+  },
+  {
+    title: 'AI-Powered Product Finder',
+    description: 'Instant product matches with 0-100% scoring. Multi-level filters for symptom, terpene, THC:CBD ratio, dispensary, and price.',
+    icon: '🎯',
+  },
+  {
+    title: 'Lab-Verified COA Data',
+    description: 'Real-time Certificate of Analysis from every Florida dispensary via Terprint Data API v2. Includes cannabinoids, terpenes, batch numbers, and PubMed citations.',
+    icon: '🔬',
+  },
+  {
+    title: 'Multi-Site Admin Dashboard',
+    description: 'Manage all clinic locations, providers, and protocols from one interface. Role-based access with Admin, Doctor, Staff, and Readonly permissions.',
+    icon: '🏢',
   },
 ]
 
@@ -105,24 +111,24 @@ const pricingTiers = [
 
 const differentiators = [
   {
+    us: 'FHIR R4 + Epic/Cerner Integration',
+    them: 'No EHR connectivity',
+  },
+  {
+    us: 'FDA SaMD Compliance Roadmap',
+    them: 'Consumer app, not clinical',
+  },
+  {
     us: 'Lab-verified COA data',
     them: 'Marketing estimates',
   },
   {
-    us: '100% Florida dispensary coverage',
-    them: 'Partial coverage',
+    us: '6 D3.js Clinical Charts',
+    them: 'Basic lists',
   },
   {
     us: 'Per-provider pricing',
     them: 'Per-site pricing',
-  },
-  {
-    us: 'AI-powered recommendations',
-    them: 'Manual lookup only',
-  },
-  {
-    us: 'HIPAA compliant',
-    them: 'Consumer-focused',
   },
 ]
 
@@ -145,21 +151,20 @@ export default function TerprintDoctorPortalPage() {
               </div>
               <div>
                 <h1 className="text-3xl sm:text-4xl font-bold">Terprint Doctor Portal</h1>
-                <p className="text-slate-400">Cannabis Medicine Intelligence</p>
+                <p className="text-slate-400">FDA-Ready Clinical Decision Support</p>
               </div>
             </div>
             
-            <span className="badge bg-emerald-500/20 text-emerald-300 mb-4">✓ Live Now</span>
+            <span className="badge bg-emerald-500/20 text-emerald-300 mb-4">✓ Live Now at doctor.terprint.com</span>
             
             <p className="text-xl text-slate-300 mb-6">
-              The only platform with lab-verified COA data from all Florida dispensaries.
-              Make evidence-based cannabis recommendations, not guesses.
+              Transform Cannabis Medicine with Evidence-Based Precision
             </p>
             
             <p className="text-slate-400 mb-8">
-              Built for the ~4,000 cannabis-recommending physicians in Florida. Search real lab data,
-              match terpene profiles to patient symptoms, and share recommendations directly to your
-              patients' phones. HIPAA compliant, per-provider pricing.
+              The first FDA-ready clinical decision support platform with FHIR R4 health record interoperability. 
+              Connect your Epic, Cerner, or Meditech EHR and start prescribing smarter. 6 interactive D3 
+              visualizations, AI-powered recommendations, and lab-verified COA data from every Florida dispensary.
             </p>
             
             <div className="flex flex-wrap gap-4">
@@ -181,6 +186,89 @@ export default function TerprintDoctorPortalPage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Hero Stats */}
+      <section className="py-12 bg-slate-950 border-y border-slate-800">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-sm text-cyan-400 mb-2">Epic MyChart</div>
+              <p className="text-slate-400 text-xs">SMART on FHIR 2.1</p>
+            </div>
+            <div>
+              <div className="text-sm text-cyan-400 mb-2">FHIR R4</div>
+              <p className="text-slate-400 text-xs">CDES-M Extension</p>
+            </div>
+            <div>
+              <div className="text-sm text-cyan-400 mb-2">6 D3 Charts</div>
+              <p className="text-slate-400 text-xs">Clinical Insights</p>
+            </div>
+            <div>
+              <div className="text-sm text-cyan-400 mb-2">Live Now</div>
+              <p className="text-slate-400 text-xs">doctor.terprint.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Statement */}
+      <section className="section-padding bg-slate-900">
+        <div className="container-custom max-w-3xl">
+          <h2 className="text-3xl font-bold mb-6 text-center">Healthcare Providers Deserve Better Cannabis Tools</h2>
+          <p className="text-slate-300 mb-8 text-center">
+            You became a doctor to help patients, not to spend 15 minutes per consultation researching cannabis products. Most physicians lack:
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="card p-6 bg-red-500/5 border-red-500/20">
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h3 className="font-semibold mb-1">Lab-Verified Data</h3>
+                  <p className="text-slate-400 text-sm">COA information scattered across dispensary websites</p>
+                </div>
+              </div>
+            </div>
+            <div className="card p-6 bg-red-500/5 border-red-500/20">
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h3 className="font-semibold mb-1">Evidence-Based Guidance</h3>
+                  <p className="text-slate-400 text-sm">Limited access to peer-reviewed cannabis research</p>
+                </div>
+              </div>
+            </div>
+            <div className="card p-6 bg-red-500/5 border-red-500/20">
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h3 className="font-semibold mb-1">EHR Integration</h3>
+                  <p className="text-slate-400 text-sm">Cannabis recommendations don't sync to patient records</p>
+                </div>
+              </div>
+            </div>
+            <div className="card p-6 bg-red-500/5 border-red-500/20">
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-red-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                <div>
+                  <h3 className="font-semibold mb-1">Regulatory Compliance</h3>
+                  <p className="text-slate-400 text-sm">No clear FDA pathway for cannabis CDS software</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p className="text-center text-cyan-400 font-semibold mt-8 text-lg">
+            Terprint Doctor Portal solves all four.
+          </p>
         </div>
       </section>
 
