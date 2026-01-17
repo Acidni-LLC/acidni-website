@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Products',
-  description: 'Software products built by Acidni LLC. ACCM - Copilot Chat Manager for VS Code, and Terprint - Cannabis Data Intelligence platform.',
+  title: 'Products | Enterprise Software for the Cannabis Industry',
+  description: 'From evidence-based clinical decision support to open data standards—Acidni builds the infrastructure that powers modern cannabis healthcare and commerce.',
 }
 
 const products = [
