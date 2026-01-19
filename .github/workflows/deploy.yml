@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
@@ -29,6 +29,16 @@ jobs:
 
       - name: Build site (Next.js export)
         run: npm run export
+
+      - name: Verify static export
+        run: |
+          if [ ! -d "out" ]; then
+            echo "ERROR: out/ directory was not created by npm run export"
+            ls -la
+            exit 1
+          fi
+          echo "✓ out/ directory exists"
+          echo "Contents: $(ls out/ | head -20)"
 
       - name: Include SWA routing config in artifact
         run: cp staticwebapp.config.json out/staticwebapp.config.json
