@@ -149,6 +149,34 @@ const products = [
       },
     },
   },
+  {
+    name: 'Text-a-Truck',
+    tagline: 'Turn Any Driver Into a Safety Reporter',
+    description: 'AI-powered hazard reporting that notifies your fleet in seconds—via SMS, voice, or web. When someone sees a hazard on your vehicle, they text a simple number. Our AI processes the report instantly. Your driver gets an alert.',
+    href: '/products/text-a-truck',
+    icon: '🚛',
+    badge: 'Coming Soon',
+    badgeClass: 'bg-amber-500/20 text-amber-300',
+    gradient: 'from-orange-500 to-red-500',
+    published: 'Launching Soon',
+    features: [
+      'Multi-channel intake (SMS, voice, web)',
+      'Azure OpenAI GPT-4 processing',
+      'Real-time driver notifications',
+      'Fleet management portal',
+    ],
+    cta: {
+      primary: {
+        text: 'Join Waitlist',
+        href: 'https://textatruck.com',
+        external: true,
+      },
+      secondary: {
+        text: 'Learn More',
+        href: '/products/text-a-truck',
+      },
+    },
+  },
 ]
 
 export default function ProductsPage() {

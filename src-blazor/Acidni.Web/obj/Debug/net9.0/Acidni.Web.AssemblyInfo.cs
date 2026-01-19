@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Acidni.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dcac8ea8c66110f3ab3b059930232d1679a0014")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29f9d1598953eaf1ad28bbbdb4cfc894df4e3c76")]
 [assembly: System.Reflection.AssemblyProductAttribute("Acidni.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Acidni.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

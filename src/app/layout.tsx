@@ -106,6 +106,27 @@ const structuredData = {
         url: 'https://doctor.terprint.com',
       },
     },
+    {
+      '@type': 'SoftwareApplication',
+      '@id': 'https://www.acidni.net/#text-a-truck-product',
+      name: 'Text-a-Truck',
+      description:
+        'AI-powered fleet safety platform. Real-time hazard reporting via SMS, voice, or web. When someone sees a hazard on your vehicle, our AI processes the report instantly and alerts your driver.',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      url: 'https://www.acidni.net/products/text-a-truck',
+      brand: {
+        '@id': 'https://www.acidni.net/#organization',
+      },
+      offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '99',
+        highPrice: '799',
+        priceCurrency: 'USD',
+        offerCount: '3',
+        url: 'https://textatruck.com',
+      },
+    },
   ],
 } as const
 
@@ -127,6 +148,9 @@ export const metadata: Metadata = {
     'VS Code extension',
     'GitHub Copilot',
     'Copilot chat manager',
+    'fleet safety',
+    'hazard reporting',
+    'trucking safety',
   ],
   authors: [{ name: 'Acidni LLC' }],
   creator: 'Acidni LLC',
