@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Products | Enterprise Software for the Cannabis Industry',
+  title: 'Products | Enterprise Software',
   description: 'From evidence-based clinical decision support to open data standards—Acidni builds the infrastructure that powers modern cannabis healthcare and commerce.',
 }
 
