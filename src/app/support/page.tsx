@@ -10,6 +10,7 @@ interface FormData {
   email: string
   company: string
   phone: string
+  product: string
   category: SupportCategory
   priority: SupportPriority
   subject: string
@@ -32,6 +33,7 @@ export default function SupportPage() {
     email: '',
     company: '',
     phone: '',
+    product: '',
     category: 'general',
     priority: 'medium',
     subject: '',
@@ -112,6 +114,7 @@ export default function SupportPage() {
           email: '',
           company: '',
           phone: '',
+          product: '',
           category: 'general',
           priority: 'medium',
           subject: '',
@@ -242,6 +245,34 @@ export default function SupportPage() {
             </div>
 
             {/* Request Details */}
+            <div>
+              <label htmlFor="product" className="block text-sm font-medium text-slate-300 mb-2">
+                Product <span className="text-red-500">*</span>
+              </label>
+              <select
+                id="product"
+                name="product"
+                required
+                value={formData.product}
+                onChange={handleChange}
+                className="input-field"
+              >
+                <option value="">Select a product...</option>
+                <option value="terprint">Terprint - Cannabis Analytics Platform</option>
+                <option value="gridsight">GridSight - Utility Monitoring</option>
+                <option value="ai-sdo">AI SDO - Software Development Organization</option>
+                <option value="fl-wetlands-mapper">FL Wetlands Mapper</option>
+                <option value="mobilemech">MobileMech - Mobile Mechanic Platform</option>
+                <option value="solar-reporting">Solar Reporting</option>
+                <option value="cdes">CDES - Compliance & Data Exchange</option>
+                <option value="copilot-chat-manager">Copilot Chat Manager</option>
+                <option value="textatruck">TextATruck</option>
+                <option value="gowild-finder">GoWild Finder</option>
+                <option value="veterans-building-solutions">Veterans Building Solutions</option>
+                <option value="other">Other / General Inquiry</option>
+              </select>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="category" className="block text-sm font-medium text-slate-300 mb-2">
