@@ -2,14 +2,14 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About Jamieson Webster & Acidni LLC | Enterprise AI & Azure Gold Partner',
-  description: 'Learn about Acidni LLC - enterprise AI consulting, legacy modernization, and custom software development. Azure Gold Partner with 25+ years of Fortune 500 experience including Hurricane Sandy disaster recovery.',
+  title: 'About Jamieson Gill & Acidni LLC | Enterprise Architecture & Cloud Migration',
+  description: 'Learn about Acidni LLC - enterprise architecture, legacy modernization, and custom software development. 25+ years of Fortune 500 experience including Hurricane Sandy disaster recovery and Orion Space Program.',
 }
 
 const credentials = [
-  'Microsoft Azure Gold Partner',
-  'Azure AI Engineer Associate',
-  'Azure Solutions Architect Expert',
+  'Microsoft Gold Certified Partner (2007)',
+  'Cisco Small Business Award Winner (2008)',
+  'BS Management Information Systems - RIT',
   '25+ years enterprise architecture',
 ]
 
@@ -29,10 +29,43 @@ const products = [
   { name: 'Text-a-Truck', desc: 'Fleet safety reporting', color: 'orange' },
 ]
 
+const keyAccomplishments = [
+  {
+    title: 'Hurricane Sandy - NYC & NJ',
+    year: '2012-2014',
+    role: 'Chief Architect',
+    description: 'Chief Architect for NYC Hurricane Sandy recovery system of record. NYC DOI saved $30 million in fraud, waste and abuse from information obtained from the system. Member of NJ DCA Commissioner\'s "Tiger Team" to accelerate the RREM home repair process.',
+  },
+  {
+    title: 'Lockheed Martin - Orion Space Program',
+    year: '2015',
+    role: 'Staff Software Engineer',
+    description: 'Staff Software Engineer on the Orion Space Program. Managed Developer Operations Tools for Test Labs and Integrated Product Teams. Managed development tooling for Flight Software, Ground Software, and Simulation systems.',
+  },
+  {
+    title: 'Humana - Enterprise Architecture',
+    year: '2020-2023',
+    role: 'Enterprise Architect',
+    description: 'Enterprise Architect for OKR tracking system, ArMet architecture metrics visualization, and ServiceNow/Orbus IServer integration for alignment and modernization.',
+  },
+  {
+    title: 'Eastdil Secured',
+    year: '2019-2020',
+    role: 'Application Architect',
+    description: 'Application Architect for migrating divested company applications from Wells Fargo private cloud to Azure public cloud. Architected migrations for application components including mail and file systems.',
+  },
+  {
+    title: 'T-Mobile Integration',
+    year: '2016-2018',
+    role: 'Software Architect',
+    description: 'Developed DriveDollar, a multi-tier cloud application integrating with T-Mobile SyncUP Drive devices for fleet driving management, tax compliance, and QuickBooks integration.',
+  },
+]
+
 const reasons = [
   {
     title: 'Fortune 500 Experience',
-    description: 'Hurricane Sandy Chief Architect. Managed disaster recovery technology for millions of customers at a Fortune 500. That pressure forged our approach.',
+    description: 'Hurricane Sandy Chief Architect. $30M fraud prevention for NYC. Orion Space Program at Lockheed Martin. Real pressure, real delivery.',
   },
   {
     title: 'We Build, Not Just Consult',
@@ -43,8 +76,8 @@ const reasons = [
     description: 'Clear deliverables, defined scope, honest pricing. No surprise bills. No endless discovery phases. You know what you get.',
   },
   {
-    title: 'Azure Gold Partner',
-    description: 'Direct Microsoft resources, priority support, and co-sell opportunities. Our partnership benefits your project.',
+    title: 'Microsoft Partner Heritage',
+    description: 'Achieved Microsoft Gold Certified Partner status in 2007. Proven track record with Microsoft technologies and Azure cloud migrations.',
   },
   {
     title: 'End-to-End Ownership',
@@ -76,25 +109,24 @@ export default function AboutPage() {
           <div className="max-w-4xl">
             <h2 className="text-3xl font-bold mb-6">The Founder</h2>
             <p className="text-slate-300 text-lg mb-6">
-              <strong>Jamieson Webster</strong> is the founder and principal architect of Acidni LLC.
-              25 years of enterprise architecture. Fortune 500 credentials. Products in market.
+              <strong>Jamieson Gill</strong> is the founder and principal architect of Acidni LLC.
+              25+ years of IT experience as a leader delivering results for companies as: virtual CIO/CTO,
+              enterprise architect, solution architect, full stack software developer, and systems engineer.
             </p>
 
             <div className="card p-6 mb-8 border-l-4 border-acidni-500">
-              <h3 className="text-xl font-semibold mb-3 text-acidni-400">Hurricane Sandy Chief Architect</h3>
+              <h3 className="text-xl font-semibold mb-3 text-acidni-400">Career Highlights</h3>
               <p className="text-slate-400">
-                In 2012, Jamieson served as <strong>Chief Architect</strong> for one of the largest
-                U.S. disaster recovery operations. A Fortune 500 company serving millions of customers
-                needed their technology restored. Fast. Under pressure. With no room for error.
-              </p>
-              <p className="text-slate-300 mt-4 font-medium">
-                That experience shaped everything: <strong>pragmatic solutions, resilient systems, no shortcuts.</strong>
+                Before founding Acidni, Jamieson built <strong>Savitas Strategic Software Solutions</strong>,
+                achieving <strong>Microsoft Gold Certified Partner</strong> status in 2007 with the ISV Solutions Competency.
+                Earlier career included data conversions for insurance companies and building enterprise solutions
+                for Fortune 500 clients.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div>
-                <h3 className="font-semibold text-acidni-400 mb-4">Certifications</h3>
+                <h3 className="font-semibold text-acidni-400 mb-4">Credentials</h3>
                 <ul className="space-y-2">
                   {credentials.map((cred) => (
                     <li key={cred} className="flex items-center gap-2 text-slate-300">
@@ -121,8 +153,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Build-First Philosophy */}
+      {/* Key Accomplishments */}
       <section className="section-padding bg-slate-900">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-4 text-center">Key Accomplishments</h2>
+          <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
+            Real projects, real impact, verified results
+          </p>
+
+          <div className="space-y-6 max-w-4xl mx-auto">
+            {keyAccomplishments.map((item) => (
+              <div key={item.title} className="card p-6">
+                <div className="flex flex-wrap items-center gap-3 mb-3">
+                  <h3 className="text-xl font-semibold text-acidni-400">{item.title}</h3>
+                  <span className="px-2 py-1 rounded bg-slate-700 text-slate-300 text-xs">{item.year}</span>
+                  <span className="px-2 py-1 rounded bg-acidni-500/20 text-acidni-400 text-xs">{item.role}</span>
+                </div>
+                <p className="text-slate-400">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Build-First Philosophy */}
+      <section className="section-padding bg-slate-950">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-4 text-center">We Build, Not Just Consult</h2>
           <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
@@ -145,7 +200,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Clients Choose Acidni */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-slate-900">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-4 text-center">Why Clients Choose Acidni</h2>
           <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
@@ -167,7 +222,7 @@ export default function AboutPage() {
       </section>
 
       {/* Service Tiers Overview */}
-      <section className="section-padding bg-slate-900">
+      <section className="section-padding bg-slate-950">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-4 text-center">Service Portfolio</h2>
           <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
@@ -217,7 +272,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Quote */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-slate-900">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <blockquote className="text-xl text-slate-300 italic mb-6">
@@ -225,7 +280,7 @@ export default function AboutPage() {
               Too many modernization efforts collapse because the architect never migrated a legacy app.
               At Acidni, we only recommend what we've built, deployed, and operated ourselves."
             </blockquote>
-            <p className="text-acidni-400 font-semibold">- Jamieson Webster, Founder</p>
+            <p className="text-acidni-400 font-semibold">- Jamieson Gill, Founder</p>
           </div>
         </div>
       </section>
