@@ -2,15 +2,15 @@
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About Jamieson Webster & Acidni LLC',
-  description: 'Learn about Acidni LLC - enterprise AI consulting, legacy modernization, and custom software development. Azure Gold Partner with 25+ years of Fortune 500 experience.',
+  title: 'About Jamieson Webster & Acidni LLC | Enterprise AI & Azure Gold Partner',
+  description: 'Learn about Acidni LLC - enterprise AI consulting, legacy modernization, and custom software development. Azure Gold Partner with 25+ years of Fortune 500 experience including Hurricane Sandy disaster recovery.',
 }
 
 const credentials = [
   'Microsoft Azure Gold Partner',
   'Azure AI Engineer Associate',
   'Azure Solutions Architect Expert',
-  '25+ years hands-on architecture',
+  '25+ years enterprise architecture',
 ]
 
 const competencies = [
@@ -23,32 +23,32 @@ const competencies = [
 ]
 
 const products = [
-  { name: 'ACCM', desc: 'VS Code Marketplace with 1,000+ users', color: 'acidni' },
-  { name: 'Terprint', desc: '15+ live Azure Marketplace SaaS offers', color: 'emerald' },
+  { name: 'ACCM', desc: 'VS Code Marketplace - 1,000+ active users', color: 'acidni' },
+  { name: 'Terprint', desc: '15 Azure Marketplace SaaS offers', color: 'emerald' },
   { name: 'GridSight', desc: 'Solar analytics platform', color: 'amber' },
-  { name: 'Publisher Toolkit', desc: 'Marketplace automation', color: 'violet' },
+  { name: 'Text-a-Truck', desc: 'Fleet safety reporting', color: 'orange' },
 ]
 
 const reasons = [
   {
-    title: 'Battle-Tested Experience',
-    description: 'Proven in demanding environments, including disaster recovery, cannabis data pipelines, and Azure Marketplace submissions.',
+    title: 'Fortune 500 Experience',
+    description: 'Hurricane Sandy Chief Architect. Managed disaster recovery technology for millions of customers at a Fortune 500. That pressure forged our approach.',
   },
   {
-    title: 'End-to-End Delivery',
-    description: 'From strategic planning to production deployment, Acidni covers the full lifecycle. Handoffs are minimized; scope is end-to-end.',
+    title: 'We Build, Not Just Consult',
+    description: 'ACCM on VS Marketplace. Terprint on Azure Marketplace. GridSight, Text-a-Truck. Real products with real users prove we can deliver.',
   },
   {
-    title: 'Transparent Economics',
-    description: 'Fixed-price packages with clear deliverables; disciplined scope management.',
+    title: 'Fixed-Price Transparency',
+    description: 'Clear deliverables, defined scope, honest pricing. No surprise bills. No endless discovery phases. You know what you get.',
   },
   {
-    title: 'Product-Backed Credibility',
-    description: 'Active products in market demonstrate expertise better than any case study.',
+    title: 'Azure Gold Partner',
+    description: 'Direct Microsoft resources, priority support, and co-sell opportunities. Our partnership benefits your project.',
   },
   {
-    title: 'Azure Gold Partner Access',
-    description: 'Direct access to Microsoft resources, support, and co-sell opportunities.',
+    title: 'End-to-End Ownership',
+    description: 'Strategy to production. No handoffs to junior teams. The architect who plans the work delivers the work.',
   },
 ]
 
@@ -64,8 +64,7 @@ export default function AboutPage() {
               <span className="gradient-text">Acidni LLC</span>
             </h1>
             <p className="text-xl text-slate-400">
-              Empowering enterprises to embrace the future through intelligent AI adoption
-              and seamless application modernization.
+              Enterprise AI adoption and application modernization. From $1M startups to Fortune 500.
             </p>
           </div>
         </div>
@@ -77,27 +76,25 @@ export default function AboutPage() {
           <div className="max-w-4xl">
             <h2 className="text-3xl font-bold mb-6">The Founder</h2>
             <p className="text-slate-300 text-lg mb-6">
-              <strong>Jamieson Webster</strong> is the founder and principal architect of Acidni LLC, 
-              bringing over 25 years of enterprise architecture experience to help organizations 
-              navigate AI adoption, legacy modernization, and complex software transformations.
+              <strong>Jamieson Webster</strong> is the founder and principal architect of Acidni LLC.
+              25 years of enterprise architecture. Fortune 500 credentials. Products in market.
             </p>
-            
+
             <div className="card p-6 mb-8 border-l-4 border-acidni-500">
               <h3 className="text-xl font-semibold mb-3 text-acidni-400">Hurricane Sandy Chief Architect</h3>
               <p className="text-slate-400">
-                Jamieson has delivered mission-critical systems for Fortune 500 enterprises and startups. 
-                During <strong>Hurricane Sandy in 2012</strong>, he served as <strong>Chief Architect</strong> for 
-                one of the largest U.S. disaster recovery operations, managing the technological response 
-                for a Fortune 500 serving millions of customers.
+                In 2012, Jamieson served as <strong>Chief Architect</strong> for one of the largest
+                U.S. disaster recovery operations. A Fortune 500 company serving millions of customers
+                needed their technology restored. Fast. Under pressure. With no room for error.
               </p>
               <p className="text-slate-300 mt-4 font-medium">
-                That experience shaped his approach: <strong>pragmatic, resilient, and built to last.</strong>
+                That experience shaped everything: <strong>pragmatic solutions, resilient systems, no shortcuts.</strong>
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <div>
-                <h3 className="font-semibold text-acidni-400 mb-4">Certifications & Partnerships</h3>
+                <h3 className="font-semibold text-acidni-400 mb-4">Certifications</h3>
                 <ul className="space-y-2">
                   {credentials.map((cred) => (
                     <li key={cred} className="flex items-center gap-2 text-slate-300">
@@ -110,11 +107,11 @@ export default function AboutPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-acidni-400 mb-4">Core Competencies</h3>
+                <h3 className="font-semibold text-acidni-400 mb-4">Expertise</h3>
                 <div className="flex flex-wrap gap-2">
                   {competencies.map((comp) => (
                     <span key={comp.name} className="px-3 py-1 rounded-full bg-slate-700 text-slate-300 text-sm">
-                      {comp.icon} {comp.name}
+                      {comp.name}
                     </span>
                   ))}
                 </div>
@@ -127,10 +124,9 @@ export default function AboutPage() {
       {/* Build-First Philosophy */}
       <section className="section-padding bg-slate-900">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-4 text-center">Build-First Philosophy</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">We Build, Not Just Consult</h2>
           <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
-            Acidni <strong>builds production systems</strong>; recommendations are backed by code, 
-            deployed infrastructure, and operational experience.
+            Every recommendation is backed by production code. These are our products, live in market.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -143,8 +139,7 @@ export default function AboutPage() {
           </div>
 
           <p className="text-slate-300 text-center mt-8 max-w-2xl mx-auto">
-            When you engage Acidni for AI or SaaS development, you work with a team that 
-            <strong> uses and operates the same systems we deliver</strong>.
+            When you hire Acidni, you work with architects who <strong>build and operate the same systems we recommend</strong>.
           </p>
         </div>
       </section>
@@ -174,37 +169,41 @@ export default function AboutPage() {
       {/* Service Tiers Overview */}
       <section className="section-padding bg-slate-900">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-4 text-center">From Small Business to Fortune 500</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">Service Portfolio</h2>
           <p className="text-slate-400 text-center max-w-2xl mx-auto mb-12">
-            Acidni serves organizations across the entire spectrum
+            Fixed-price packages for every stage of growth
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="card p-6">
               <h3 className="text-xl font-semibold mb-4 text-acidni-400">Small Business</h3>
               <p className="text-slate-400 text-sm mb-2">$1M-$50M revenue</p>
+              <p className="text-2xl font-bold text-white mb-4">$5K - $75K</p>
               <ul className="text-slate-300 text-sm space-y-1">
-                <li> Quick-start AI ($5K-$15K)</li>
-                <li> Custom AI solutions ($25K-$75K)</li>
-                <li> Employee productivity automation</li>
+                <li>AI Opportunity Assessment</li>
+                <li>POC Sprint (2 weeks)</li>
+                <li>Employee Productivity AI</li>
+                <li>Custom AI Solutions</li>
               </ul>
             </div>
             <div className="card p-6 border border-acidni-500/30">
               <h3 className="text-xl font-semibold mb-4 text-acidni-400">Mid-Market</h3>
               <p className="text-slate-400 text-sm mb-2">$50M-$500M revenue</p>
+              <p className="text-2xl font-bold text-white mb-4">$35K - $195K</p>
               <ul className="text-slate-300 text-sm space-y-1">
-                <li> AI readiness assessments ($35K)</li>
-                <li> Legacy modernization roadmaps ($65K)</li>
-                <li> AI pilot implementations ($120K)</li>
+                <li>AI Readiness Assessment ($35K)</li>
+                <li>Legacy Modernization Roadmap ($65K)</li>
+                <li>AI Pilot Implementation ($120K)</li>
               </ul>
             </div>
             <div className="card p-6">
               <h3 className="text-xl font-semibold mb-4 text-acidni-400">Enterprise</h3>
               <p className="text-slate-400 text-sm mb-2">$500M+ revenue</p>
+              <p className="text-2xl font-bold text-white mb-4">$200K - $800K+</p>
               <ul className="text-slate-300 text-sm space-y-1">
-                <li> Discovery workshops ($15K)</li>
-                <li> Multi-app transformations ($200K-$800K+)</li>
-                <li> AI centers of excellence</li>
+                <li>Discovery Workshop ($15K)</li>
+                <li>Multi-App Transformations</li>
+                <li>AI Centers of Excellence</li>
               </ul>
             </div>
           </div>
@@ -222,11 +221,11 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <blockquote className="text-xl text-slate-300 italic mb-6">
-              "Too many AI projects fail because they're led by people who've never shipped production AI systems. 
-              Too many modernization efforts collapse because the consultant has never actually migrated a legacy application. 
-              At Acidni, we only recommend what we've proven worksbecause we've built it, deployed it, and lived with the consequences."
+              "Too many AI projects fail because consultants have never shipped production AI.
+              Too many modernization efforts collapse because the architect never migrated a legacy app.
+              At Acidni, we only recommend what we've built, deployed, and operated ourselves."
             </blockquote>
-            <p className="text-acidni-400 font-semibold"> Jamieson Webster, Founder</p>
+            <p className="text-acidni-400 font-semibold">- Jamieson Webster, Founder</p>
           </div>
         </div>
       </section>
@@ -235,18 +234,18 @@ export default function AboutPage() {
       <section className="section-padding gradient-bg">
         <div className="container-custom text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Let's Work Together
+            Ready to Talk?
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto mb-10">
-            Whether you're a $1M startup exploring AI or a Fortune 500 enterprise modernizing legacy systems, 
-            Acidni has the experience, credibility, and proven delivery capability to help you succeed.
+            Whether you're a startup exploring AI or an enterprise modernizing legacy systems,
+            we have the experience and products to prove we can deliver.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/contact" className="btn-primary bg-white text-slate-900 hover:bg-slate-100">
-              Schedule a Free Consultation
+              Schedule a Consultation
             </Link>
             <Link href="/products" className="btn-secondary border-white text-white hover:bg-white/10">
-              View Our Products
+              See Our Products
             </Link>
           </div>
         </div>
@@ -254,3 +253,4 @@ export default function AboutPage() {
     </div>
   )
 }
+

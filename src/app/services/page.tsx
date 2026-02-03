@@ -1,34 +1,114 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Services',
-  description: 'Acidni LLC offers AI consulting, application modernization, and custom development services to help enterprises transform their technology.',
+  title: 'Services | AI Consulting & Application Modernization',
+  description: 'Fixed-price AI consulting, legacy modernization, and custom development. From $5K quick-start to $800K+ enterprise transformations.',
 }
+
+const smallBusiness = [
+  {
+    name: 'AI Opportunity Assessment',
+    price: '$5K',
+    duration: '1 week',
+    description: 'Identify your highest-value AI opportunities. Walk away with a prioritized roadmap.',
+  },
+  {
+    name: 'AI POC Sprint',
+    price: '$12K',
+    duration: '2 weeks',
+    description: 'Working prototype of your top AI use case. Prove value before committing.',
+  },
+  {
+    name: 'Employee Productivity AI',
+    price: '$15K',
+    duration: '3 weeks',
+    description: 'Deploy Copilot, ChatGPT, or custom AI tools across your team.',
+  },
+  {
+    name: 'Custom AI Solution',
+    price: '$25K',
+    duration: '4-6 weeks',
+    description: 'Production AI system tailored to your workflow.',
+  },
+  {
+    name: 'Multi-Process Automation',
+    price: '$45K',
+    duration: '8-10 weeks',
+    description: 'Connect multiple systems with AI-powered automation.',
+  },
+  {
+    name: 'AI Center of Excellence',
+    price: '$75K',
+    duration: '12 weeks',
+    description: 'Build internal AI capability with governance, training, and infrastructure.',
+  },
+]
+
+const midMarket = [
+  {
+    name: 'AI Readiness Assessment',
+    price: '$35K',
+    duration: '2 weeks',
+    description: 'Comprehensive analysis of data, infrastructure, and organization readiness for AI.',
+    deliverables: ['Data maturity assessment', 'Infrastructure review', 'Governance framework', '90-day implementation plan'],
+  },
+  {
+    name: 'Legacy Modernization Roadmap',
+    price: '$65K',
+    duration: '4 weeks',
+    description: 'Complete application portfolio analysis with migration strategy and cost modeling.',
+    deliverables: ['Application inventory', 'Technical debt assessment', 'Migration patterns', 'Business case with ROI'],
+  },
+  {
+    name: 'AI Pilot Implementation',
+    price: '$120K',
+    duration: '8 weeks',
+    description: 'Production-ready AI solution with go/no-go checkpoints at weeks 2, 4, and 6.',
+    deliverables: ['Working AI system', 'Integration with existing tools', 'User training', 'Operations runbook'],
+  },
+]
+
+const enterprise = [
+  {
+    name: 'Discovery Workshop',
+    price: '$15K',
+    duration: '2 days',
+    description: 'Executive alignment session for complex transformations.',
+  },
+  {
+    name: 'Multi-App Transformation',
+    price: '$200K-$500K',
+    duration: '16-24 weeks',
+    description: 'Modernize interconnected application portfolios.',
+  },
+  {
+    name: 'Enterprise AI Platform',
+    price: '$400K-$800K+',
+    duration: '24-52 weeks',
+    description: 'Organization-wide AI infrastructure and governance.',
+  },
+]
 
 const services = [
   {
     title: 'AI Adoption & Integration',
-    description: 'Navigate the AI landscape with confidence. We help enterprises implement practical AI solutions that drive real business value — from strategy to production.',
+    description: 'From strategy to production. We implement AI solutions that deliver measurable business value.',
     href: '/services/ai-consulting',
-    icon: '🧠',
-    color: 'acidni',
+    icon: '',
     features: [
-      'AI strategy & roadmap development',
       'Azure OpenAI & Copilot integration',
-      'Machine learning model development',
-      'Intelligent automation (RPA + AI)',
-      'Data analytics platforms',
+      'Custom model development',
+      'Intelligent automation',
+      'AI strategy & roadmaps',
     ],
   },
   {
     title: 'Application Modernization',
-    description: 'Transform legacy systems into modern, scalable cloud applications. We migrate your critical systems to Azure without disrupting your business.',
+    description: 'Transform legacy systems into modern cloud applications without disrupting operations.',
     href: '/services/app-modernization',
-    icon: '🔄',
-    color: 'accent',
+    icon: '',
     features: [
-      'Legacy system assessment',
       'Cloud migration (Azure-first)',
       'Microservices architecture',
       'API modernization',
@@ -37,58 +117,26 @@ const services = [
   },
   {
     title: 'Custom Development',
-    description: 'From VS Code extensions to full-stack applications, we build software that solves real problems. Our own published products prove our engineering excellence.',
+    description: 'Full-stack applications, VS Code extensions, Azure Functions. We build what you need.',
     href: '/services/custom-development',
-    icon: '💻',
-    color: 'emerald',
+    icon: '',
     features: [
-      'Full-stack application development',
-      'VS Code extension development',
-      'Azure Functions & serverless',
+      'Full-stack applications',
+      'VS Code extensions',
+      'Azure serverless',
       'Power Platform solutions',
-      'Integration services',
     ],
   },
   {
     title: 'CannaTech Consulting',
-    description: 'Technology solutions for the cannabis industry. We understand the unique challenges of compliance, data fragmentation, and market intelligence in this emerging space.',
+    description: 'Technology solutions for cannabis. We understand compliance, data, and market intelligence.',
     href: '/services/cannatech',
-    icon: '🌿',
-    color: 'green',
+    icon: '',
     features: [
       'Dispensary data platforms',
-      'Compliance & tracking systems',
+      'Compliance systems',
       'COA extraction & analytics',
-      'Market intelligence tools',
       'Seed-to-sale integrations',
-    ],
-  },
-  {
-    title: 'Training & Workforce Development',
-    description: 'Upskill your teams with practical, hands-on training from experts who build production systems every day. We don\'t just teach theory — we share real-world experience.',
-    href: '/services/training',
-    icon: '🎓',
-    color: 'amber',
-    features: [
-      'AI & Machine Learning training',
-      'Azure Cloud certification prep',
-      'Modern development practices',
-      'Custom training programs',
-      'On-site & virtual delivery',
-    ],
-  },
-  {
-    title: 'Public Speaking',
-    description: 'Engage your audience with speakers who share hard-won insights from building real systems. Keynotes, workshops, and technical sessions that deliver value.',
-    href: '/services/speaking',
-    icon: '🎤',
-    color: 'rose',
-    features: [
-      'Keynote presentations',
-      'Technical deep-dives',
-      'Hands-on workshops',
-      'Panel discussions',
-      'Webinars & podcasts',
     ],
   },
 ]
@@ -101,43 +149,114 @@ export default function ServicesPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Technology Services That{' '}
-              <span className="gradient-text">Drive Results</span>
+              Fixed-Price{' '}
+              <span className="gradient-text">Services</span>
             </h1>
             <p className="text-xl text-slate-400">
-              From AI strategy to legacy modernization — we partner with enterprises 
-              to deliver transformation that matters.
+              Clear deliverables. Defined scope. No surprises. From $5K to $800K+.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Small Business Packages */}
       <section className="section-padding bg-slate-950">
         <div className="container-custom">
-          <div className="space-y-24">
-            {services.map((service) => (
-              <div 
-                key={service.title}
-                className="max-w-3xl"
-              >
-                <div className={`w-16 h-16 rounded-2xl bg-${service.color}-500/20 flex items-center justify-center mb-6`}>
-                  <span className="text-4xl">{service.icon}</span>
+          <h2 className="text-3xl font-bold mb-2">Small Business</h2>
+          <p className="text-slate-400 mb-8">$1M-$50M revenue | $5K-$75K engagements</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {smallBusiness.map((pkg) => (
+              <div key={pkg.name} className="card p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="font-semibold text-lg">{pkg.name}</h3>
+                  <span className="text-acidni-400 font-bold">{pkg.price}</span>
                 </div>
-                <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
-                <p className="text-slate-400 text-lg mb-6">{service.description}</p>
-                <ul className="space-y-3 mb-8">
+                <p className="text-slate-500 text-sm mb-2">{pkg.duration}</p>
+                <p className="text-slate-400 text-sm">{pkg.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mid-Market Packages */}
+      <section className="section-padding bg-slate-900">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-2">Mid-Market</h2>
+          <p className="text-slate-400 mb-8">$50M-$500M revenue | $35K-$195K engagements</p>
+          
+          <div className="grid lg:grid-cols-3 gap-8">
+            {midMarket.map((pkg) => (
+              <div key={pkg.name} className="card p-6 border border-acidni-500/20">
+                <div className="mb-4">
+                  <h3 className="font-semibold text-xl mb-2">{pkg.name}</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-acidni-400">{pkg.price}</span>
+                    <span className="text-slate-500 text-sm">{pkg.duration}</span>
+                  </div>
+                </div>
+                <p className="text-slate-400 mb-4">{pkg.description}</p>
+                <ul className="space-y-2">
+                  {pkg.deliverables.map((d) => (
+                    <li key={d} className="flex items-center gap-2 text-slate-300 text-sm">
+                      <svg className="w-4 h-4 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise Packages */}
+      <section className="section-padding bg-slate-950">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-2">Enterprise</h2>
+          <p className="text-slate-400 mb-8">$500M+ revenue | $200K-$800K+ transformations</p>
+          
+          <div className="grid lg:grid-cols-3 gap-8">
+            {enterprise.map((pkg) => (
+              <div key={pkg.name} className="card p-6">
+                <h3 className="font-semibold text-xl mb-2">{pkg.name}</h3>
+                <div className="flex items-baseline gap-2 mb-4">
+                  <span className="text-xl font-bold text-acidni-400">{pkg.price}</span>
+                  <span className="text-slate-500 text-sm">{pkg.duration}</span>
+                </div>
+                <p className="text-slate-400">{pkg.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="section-padding bg-slate-900">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-8 text-center">Service Areas</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service) => (
+              <div key={service.title} className="card p-8">
+                <span className="text-4xl mb-4 block">{service.icon}</span>
+                <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                <p className="text-slate-400 mb-6">{service.description}</p>
+                <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-slate-300">
-                      <svg className={`w-5 h-5 text-${service.color}-500 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
+                    <li key={feature} className="flex items-center gap-2 text-slate-300 text-sm">
+                      <svg className="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <Link href={service.href} className="btn-primary">
-                  Learn More
+                <Link href={service.href} className="text-acidni-400 hover:text-acidni-300 font-medium">
+                  Learn more 
                 </Link>
               </div>
             ))}
@@ -152,8 +271,7 @@ export default function ServicesPage() {
             Not Sure Where to Start?
           </h2>
           <p className="text-slate-300 max-w-2xl mx-auto mb-10">
-            Let's have a conversation about your technology challenges. 
-            We'll help you identify the right approach for your business.
+            Schedule a free consultation. We will help you identify the right approach for your situation.
           </p>
           <Link href="/contact" className="btn-primary bg-white text-slate-900 hover:bg-slate-100">
             Schedule a Consultation
