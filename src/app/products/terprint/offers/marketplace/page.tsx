@@ -35,7 +35,7 @@ export default function TerprintMarketplaceOverviewPage() {
           {offers.length === 0 ? (
             <div className="card p-6">
               <div className="font-semibold mb-2">No marketplace data yet</div>
-              <p className="text-slate-400 text-sm">Run the importer and refresh: npm run import:terprint "C:\\Users\\JamiesonGill\\Documents\\GitHub\\Acidni-LLC\\terprint-marketplace\\marketplace-offers\\offers"</p>
+              <p className="text-slate-400 text-sm">Run the importer and refresh: npm run import:terprint "C:\\Users\\JamiesonGill\\Documents\\GitHub\\Acidni-LLC\\acidni-publisher-portal\\marketplace-offers\\offers"</p>
             </div>
           ) : (
             <div className="overflow-x-auto">

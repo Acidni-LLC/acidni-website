@@ -390,7 +390,7 @@ Each function app has assigned ports to avoid conflicts:
 | func-terprint-ai-recommender | 7091 | 7091-7095 |
 | func-terprint-ai-deals | 7096 | 7096-7100 |
 | func-terprint-ai-health | 7101 | 7101-7105 |
-| terprint-marketplace-webhook | 7106 | 7106-7110 |
+| acidni-publisher-portal-webhook | 7106 | 7106-7110 |
 | func-terprint-infographics | 7111 | 7111-7115 |
 | func-terprint-metering | 7116 | 7116-7120 |
 | func-terprint-data-api | 7121 | 7121-7125 |

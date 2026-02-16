@@ -22,10 +22,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Checkout terprint-marketplace
+      - name: Checkout acidni-publisher-portal
         uses: actions/checkout@v4
         with:
-          repository: Acidni-LLC/terprint-marketplace
+          repository: Acidni-LLC/acidni-publisher-portal
           path: marketplace
 
       - name: Setup Node

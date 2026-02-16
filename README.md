@@ -112,7 +112,7 @@ To display concise, actionable summaries of Terprint marketplace products:
 1. Generate offers from your marketplace repo.
 
 ```bash
-npm run import:terprint "C:\\Users\\JamiesonGill\\Documents\\GitHub\\Acidni-LLC\\terprint-marketplace\\marketplace-offers\\offers"
+npm run import:terprint "C:\\Users\\JamiesonGill\\Documents\\GitHub\\Acidni-LLC\\acidni-publisher-portal\\marketplace-offers\\offers"
 ```
 
 2. The script writes a compact module to:

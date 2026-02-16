@@ -20,7 +20,7 @@ export type Offer = {
 }
 
 // TODO: Replace placeholder offers with the real Azure Marketplace offers.
-// Populate this list based on terprint-marketplace/marketplace-offers/offers.
+// Populate this list based on acidni-publisher-portal/marketplace-offers/offers.
 const manualOffers: Offer[] = [
   {
     slug: 'menu-aggregation-api',
