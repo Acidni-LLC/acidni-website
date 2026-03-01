@@ -139,9 +139,6 @@ export default function Footer() {
           <p className="text-slate-500 text-sm">
             © {new Date().getFullYear()} Acidni LLC. All rights reserved.
           </p>
-          <p className="text-slate-500 text-sm">
-            4255 Benedict St, Hastings, FL 32145
-          </p>
         </div>
       </div>
     </footer>
