@@ -1,4 +1,4 @@
----
+﻿---
 description: 'Terminal command patterns for Acidni LLC projects - Windows/PowerShell specifics, working commands, and known failure patterns'
 applyTo: '**/*.ps1, **/*.sh, **/*.cmd, **/*.bat'
 ---
@@ -64,7 +64,7 @@ your-repo/
 
 - **ALL apps MUST implement caching by default**
 - **Cache layer**: Azure Cache for Redis (shared instance) or in-memory for local
-- **Cache-aside pattern**: Check cache → miss → fetch → store → return
+- **Cache-aside pattern**: Check cache â†’ miss â†’ fetch â†’ store â†’ return
 - **Default TTL**: 5 minutes (configurable per endpoint)
 - **Cache keys**: Use consistent naming: `{service}:{entity}:{id}`
 
@@ -90,7 +90,7 @@ your-repo/
 }
 ```
 
-**To Disable Caching**: Request via work item → terprint-config team adds override.
+**To Disable Caching**: Request via work item â†’ terprint-config team adds override.
 
 **Cache Implementation Pattern (Python):**
 ```python
@@ -116,7 +116,7 @@ async def get_data(key: str):
 ### DIRECTIVE 7: ALL SERVICE CALLS MUST GO THROUGH APIM
 
 - **NO direct service-to-service calls** - ALL API calls route through APIM
-- **APIM Gateway**: `https://apim-terprint-dev.azure-api.net`
+- **APIM Gateway**: `https://api.acidni.net`
 - **Benefits**: Central auth, rate limiting, caching, monitoring, circuit breaking
 - **Authentication**: Use subscription keys or OAuth tokens
 
@@ -159,7 +159,7 @@ To avoid terminals fighting each other and to maximize local performance, use th
   - `data-development`: `communications`, `batch-processor`, `menudownloader`, `data-api`
   - `full`: all 8 core services
 - **Groups** (ordered startup):
-  - `core-services` → `ai-services` → `data-services`
+  - `core-services` â†’ `ai-services` â†’ `data-services`
 - **Behavior**:
   - Starts each service in its **own PowerShell window**
   - Sets a clear **window title** per app (see below)

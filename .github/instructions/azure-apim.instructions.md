@@ -1,4 +1,4 @@
----
+﻿---
 description: 'Azure API Management (APIM) standards and patterns for Terprint services - routing, policies, caching, security, and service mesh'
 applyTo: '**/apim/**,**/*policy*.xml,**/openapi*.json,**/openapi*.yaml'
 ---
@@ -20,7 +20,7 @@ applyTo: '**/apim/**,**/*policy*.xml,**/openapi*.json,**/openapi*.yaml'
 |----------|-------|
 | Instance Name | `apim-terprint-dev` |
 | Resource Group | `rg-dev-terprint-shared` |
-| Gateway URL | `https://apim-terprint-dev.azure-api.net` |
+| Gateway URL | `https://api.acidni.net` |
 | Developer Portal | `https://apim-terprint-dev.developer.azure-api.net` |
 | Management API | `https://apim-terprint-dev.management.azure-api.net` |
 | SKU | Developer (upgrade to Standard for prod) |
@@ -42,25 +42,25 @@ applyTo: '**/apim/**,**/*policy*.xml,**/openapi*.json,**/openapi*.yaml'
 ### Base URL Pattern
 
 ```
-https://apim-terprint-dev.azure-api.net/{api-path}/{endpoint}
+https://api.acidni.net/{api-path}/{endpoint}
 ```
 
 ### Example Calls
 
 ```powershell
 # AI Chat - through APIM
-$response = Invoke-RestMethod -Uri "https://apim-terprint-dev.azure-api.net/chat/api/chat" `
+$response = Invoke-RestMethod -Uri "https://api.acidni.net/chat/api/chat" `
     -Method Post `
     -Headers @{ "Ocp-Apim-Subscription-Key" = $subscriptionKey } `
     -Body $body `
     -ContentType "application/json"
 
 # Data API - through APIM  
-$strains = Invoke-RestMethod -Uri "https://apim-terprint-dev.azure-api.net/data/api/strains" `
+$strains = Invoke-RestMethod -Uri "https://api.acidni.net/data/api/strains" `
     -Headers @{ "Ocp-Apim-Subscription-Key" = $subscriptionKey }
 
 # Stock Check - through APIM
-$stock = Invoke-RestMethod -Uri "https://apim-terprint-dev.azure-api.net/stock/api/stock-check" `
+$stock = Invoke-RestMethod -Uri "https://api.acidni.net/stock/api/stock-check" `
     -Method Post `
     -Headers @{ "Ocp-Apim-Subscription-Key" = $subscriptionKey } `
     -Body '{"dispensary": "cookies"}' `
@@ -77,7 +77,7 @@ class TerprintAPIClient:
     """Client for calling Terprint services through APIM."""
     
     def __init__(self):
-        self.base_url = os.environ.get("APIM_GATEWAY_URL", "https://apim-terprint-dev.azure-api.net")
+        self.base_url = os.environ.get("APIM_GATEWAY_URL", "https://api.acidni.net")
         self.subscription_key = os.environ.get("APIM_SUBSCRIPTION_KEY")
         
     def _get_headers(self) -> dict:
@@ -122,14 +122,14 @@ class TerprintAPIClient:
 ### 1. Subscription Key (Default)
 
 ```http
-GET https://apim-terprint-dev.azure-api.net/data/api/strains
+GET https://api.acidni.net/data/api/strains
 Ocp-Apim-Subscription-Key: {your-subscription-key}
 ```
 
 ### 2. OAuth 2.0 / Entra ID (Recommended for Production)
 
 ```http
-GET https://apim-terprint-dev.azure-api.net/data/api/strains
+GET https://api.acidni.net/data/api/strains
 Authorization: Bearer {access-token}
 ```
 
@@ -471,7 +471,7 @@ requests
 Add trace to request:
 
 ```http
-GET https://apim-terprint-dev.azure-api.net/data/api/strains
+GET https://api.acidni.net/data/api/strains
 Ocp-Apim-Subscription-Key: {key}
 Ocp-Apim-Trace: true
 ```
@@ -480,8 +480,8 @@ Response includes `Ocp-Apim-Trace-Location` header with debug trace URL.
 
 ### Test from Portal
 
-1. Go to Azure Portal → APIM → APIs
-2. Select API → Test tab
+1. Go to Azure Portal â†’ APIM â†’ APIs
+2. Select API â†’ Test tab
 3. Select operation
 4. Add headers/body
 5. Click Send
@@ -493,7 +493,7 @@ All services should use these environment variables:
 
 ```json
 {
-  "APIM_GATEWAY_URL": "https://apim-terprint-dev.azure-api.net",
+  "APIM_GATEWAY_URL": "https://api.acidni.net",
   "APIM_SUBSCRIPTION_KEY": "@Microsoft.KeyVault(SecretUri=https://kv-terprint.vault.azure.net/secrets/apim-subscription-key/)",
   "APIM_MANAGEMENT_URL": "https://apim-terprint-dev.management.azure-api.net"
 }
@@ -529,5 +529,5 @@ az apim api show -g rg-dev-terprint-shared -n apim-terprint-dev --api-id terprin
 
 # Test API (get subscription key first)
 $key = az apim subscription show -g rg-dev-terprint-shared -n apim-terprint-dev --subscription-id internal-key --query primaryKey -o tsv
-Invoke-RestMethod -Uri "https://apim-terprint-dev.azure-api.net/data/api/health" -Headers @{"Ocp-Apim-Subscription-Key"=$key}
+Invoke-RestMethod -Uri "https://api.acidni.net/data/api/health" -Headers @{"Ocp-Apim-Subscription-Key"=$key}
 ```
