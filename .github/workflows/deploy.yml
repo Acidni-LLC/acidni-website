@@ -75,7 +75,7 @@ jobs:
         if: always()
         run: |
           # Fallback check; ignore failure if custom domain passed
-          URL_DEFAULT="https://zealous-stone-0fafe420f.6.azurestaticapps.net/feedback/"
+          URL_DEFAULT="https://gray-bay-089c3280f.2.azurestaticapps.net/feedback/"
           echo "Checking default host $URL_DEFAULT ..."
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL_DEFAULT")
           echo "Default host status: $STATUS"
