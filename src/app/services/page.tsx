@@ -3,43 +3,37 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Services | AI Consulting & Application Modernization',
-  description: 'Fixed-price AI consulting, legacy modernization, and custom development. From $5K quick-start to $800K+ enterprise transformations.',
+  description: 'AI consulting, legacy modernization, and custom development.',
 }
 
 const smallBusiness = [
   {
     name: 'AI Opportunity Assessment',
-    price: '$5K',
     duration: '1 week',
     description: 'Identify your highest-value AI opportunities. Walk away with a prioritized roadmap.',
   },
   {
     name: 'AI POC Sprint',
-    price: '$12K',
     duration: '2 weeks',
     description: 'Working prototype of your top AI use case. Prove value before committing.',
   },
   {
     name: 'Employee Productivity AI',
-    price: '$15K',
     duration: '3 weeks',
     description: 'Deploy Copilot, ChatGPT, or custom AI tools across your team.',
   },
   {
     name: 'Custom AI Solution',
-    price: '$25K',
     duration: '4-6 weeks',
     description: 'Production AI system tailored to your workflow.',
   },
   {
     name: 'Multi-Process Automation',
-    price: '$45K',
     duration: '8-10 weeks',
     description: 'Connect multiple systems with AI-powered automation.',
   },
   {
     name: 'AI Center of Excellence',
-    price: '$75K',
     duration: '12 weeks',
     description: 'Build internal AI capability with governance, training, and infrastructure.',
   },
@@ -48,21 +42,18 @@ const smallBusiness = [
 const midMarket = [
   {
     name: 'AI Readiness Assessment',
-    price: '$35K',
     duration: '2 weeks',
     description: 'Comprehensive analysis of data, infrastructure, and organization readiness for AI.',
     deliverables: ['Data maturity assessment', 'Infrastructure review', 'Governance framework', '90-day implementation plan'],
   },
   {
     name: 'Legacy Modernization Roadmap',
-    price: '$65K',
     duration: '4 weeks',
     description: 'Complete application portfolio analysis with migration strategy and cost modeling.',
     deliverables: ['Application inventory', 'Technical debt assessment', 'Migration patterns', 'Business case with ROI'],
   },
   {
     name: 'AI Pilot Implementation',
-    price: '$120K',
     duration: '8 weeks',
     description: 'Production-ready AI solution with go/no-go checkpoints at weeks 2, 4, and 6.',
     deliverables: ['Working AI system', 'Integration with existing tools', 'User training', 'Operations runbook'],
@@ -72,19 +63,16 @@ const midMarket = [
 const enterprise = [
   {
     name: 'Discovery Workshop',
-    price: '$15K',
     duration: '2 days',
     description: 'Executive alignment session for complex transformations.',
   },
   {
     name: 'Multi-App Transformation',
-    price: '$200K-$500K',
     duration: '16-24 weeks',
     description: 'Modernize interconnected application portfolios.',
   },
   {
     name: 'Enterprise AI Platform',
-    price: '$400K-$800K+',
     duration: '24-52 weeks',
     description: 'Organization-wide AI infrastructure and governance.',
   },
@@ -149,11 +137,10 @@ export default function ServicesPage() {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Fixed-Price{' '}
               <span className="gradient-text">Services</span>
             </h1>
             <p className="text-xl text-slate-400">
-              Clear deliverables. Defined scope. No surprises. From $5K to $800K+.
+              Clear deliverables. Defined scope. No surprises.
             </p>
           </div>
         </div>
@@ -163,15 +150,12 @@ export default function ServicesPage() {
       <section className="section-padding bg-slate-950">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-2">Small Business</h2>
-          <p className="text-slate-400 mb-8">$1M-$50M revenue | $5K-$75K engagements</p>
+          <p className="text-slate-400 mb-8">$1M-$50M revenue</p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {smallBusiness.map((pkg) => (
               <div key={pkg.name} className="card p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="font-semibold text-lg">{pkg.name}</h3>
-                  <span className="text-acidni-400 font-bold">{pkg.price}</span>
-                </div>
+                <h3 className="font-semibold text-lg mb-4">{pkg.name}</h3>
                 <p className="text-slate-500 text-sm mb-2">{pkg.duration}</p>
                 <p className="text-slate-400 text-sm">{pkg.description}</p>
               </div>
@@ -184,17 +168,14 @@ export default function ServicesPage() {
       <section className="section-padding bg-slate-900">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-2">Mid-Market</h2>
-          <p className="text-slate-400 mb-8">$50M-$500M revenue | $35K-$195K engagements</p>
+          <p className="text-slate-400 mb-8">$50M-$500M revenue</p>
           
           <div className="grid lg:grid-cols-3 gap-8">
             {midMarket.map((pkg) => (
               <div key={pkg.name} className="card p-6 border border-acidni-500/20">
                 <div className="mb-4">
                   <h3 className="font-semibold text-xl mb-2">{pkg.name}</h3>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-acidni-400">{pkg.price}</span>
-                    <span className="text-slate-500 text-sm">{pkg.duration}</span>
-                  </div>
+                  <span className="text-slate-500 text-sm">{pkg.duration}</span>
                 </div>
                 <p className="text-slate-400 mb-4">{pkg.description}</p>
                 <ul className="space-y-2">
@@ -217,16 +198,13 @@ export default function ServicesPage() {
       <section className="section-padding bg-slate-950">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-2">Enterprise</h2>
-          <p className="text-slate-400 mb-8">$500M+ revenue | $200K-$800K+ transformations</p>
+          <p className="text-slate-400 mb-8">$500M+ revenue</p>
           
           <div className="grid lg:grid-cols-3 gap-8">
             {enterprise.map((pkg) => (
               <div key={pkg.name} className="card p-6">
                 <h3 className="font-semibold text-xl mb-2">{pkg.name}</h3>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-xl font-bold text-acidni-400">{pkg.price}</span>
-                  <span className="text-slate-500 text-sm">{pkg.duration}</span>
-                </div>
+                <p className="text-slate-500 text-sm mb-2">{pkg.duration}</p>
                 <p className="text-slate-400">{pkg.description}</p>
               </div>
             ))}
