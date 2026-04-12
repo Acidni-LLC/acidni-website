@@ -108,6 +108,27 @@ const structuredData = {
     },
     {
       '@type': 'SoftwareApplication',
+      '@id': 'https://www.acidni.net/#ai-sdo-product',
+      name: 'Acidni AI SDO',
+      description:
+        'AI-powered Software Development Organization as a Service. 50+ autonomous AI agents handle requirements, architecture, coding, testing, and deployment with enterprise-grade governance controls.',
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Web',
+      url: 'https://www.acidni.net/products/ai-sdo',
+      brand: {
+        '@id': 'https://www.acidni.net/#organization',
+      },
+      offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '249',
+        highPrice: '1499',
+        priceCurrency: 'USD',
+        offerCount: '4',
+        url: 'https://sales.sdo.acidni.net',
+      },
+    },
+    {
+      '@type': 'SoftwareApplication',
       '@id': 'https://www.acidni.net/#text-a-truck-product',
       name: 'Text-a-Truck',
       description:
@@ -151,6 +172,11 @@ export const metadata: Metadata = {
     'fleet safety',
     'hazard reporting',
     'trucking safety',
+    'AI software development organization',
+    'AI SDO',
+    'autonomous software delivery',
+    'AI agents for software development',
+    'SDLC automation',
   ],
   authors: [{ name: 'Acidni LLC' }],
   creator: 'Acidni LLC',

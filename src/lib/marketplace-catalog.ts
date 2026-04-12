@@ -181,7 +181,7 @@ export const marketplaceProducts: MarketplaceProduct[] = [
       },
     ],
     links: {
-      website: 'https://sdo.acidni.net',
+      website: '/products/ai-sdo',
       sales: 'https://sales.sdo.acidni.net',
     },
     gradient: 'from-violet-500 to-purple-600',

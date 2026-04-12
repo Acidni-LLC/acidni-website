@@ -125,7 +125,42 @@ export default function Home() {
             Real products. Real users. Real proof of our engineering capabilities.
           </p>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* AI SDO Product Card */}
+            <div className="card p-8 relative overflow-hidden">
+              <div className="absolute top-4 right-4">
+                <span className="badge bg-violet-500/20 text-violet-300">🤖 Preview</span>
+              </div>
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center mb-6">
+                <span className="text-3xl">🤖</span>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Acidni AI SDO</h3>
+              <p className="text-violet-400 text-sm mb-4">AI Software Development Organization</p>
+              <p className="text-slate-400 mb-6">
+                Your entire dev team, powered by AI. 50+ autonomous agents handle requirements, 
+                architecture, coding, testing, and deployment — governed by enterprise controls.
+              </p>
+              <ul className="text-slate-300 text-sm space-y-2 mb-6">
+                <li>🤖 50+ Pre-built AI Agents</li>
+                <li>🔄 Full SDLC Automation</li>
+                <li>🛡️ Enterprise Governance</li>
+                <li>🔗 GitHub & Azure DevOps Integration</li>
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <a 
+                  href="https://sales.sdo.acidni.net" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-sm bg-gradient-to-r from-violet-500 to-purple-600"
+                >
+                  Start Free Trial
+                </a>
+                <a href="/products/ai-sdo" className="btn-secondary text-sm">
+                  Learn More
+                </a>
+              </div>
+            </div>
+
             {/* ACCM Product Card */}
             <div className="card p-8 relative overflow-hidden">
               <div className="absolute top-4 right-4">
