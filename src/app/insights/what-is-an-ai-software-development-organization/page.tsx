@@ -282,9 +282,7 @@ export default function WhatIsAnAiSdoPage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://sales.sdo.acidni.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/products/ai-sdo#pricing"
                   className="btn-primary bg-gradient-to-r from-violet-500 to-purple-600"
                 >
                   Start Free Trial

@@ -237,20 +237,16 @@ export default function AISDOPage() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href="https://sales.sdo.acidni.net"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#pricing"
                 className="btn-primary"
               >
                 Start Free Trial
               </a>
               <a
-                href="https://sdo.acidni.net"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="btn-secondary"
               >
-                View Platform
+                Contact Sales
               </a>
             </div>
           </div>
@@ -426,13 +422,7 @@ export default function AISDOPage() {
                   ))}
                 </ul>
                 <a
-                  href={
-                    tier.name === 'Enterprise'
-                      ? 'https://sales.sdo.acidni.net'
-                      : 'https://sales.sdo.acidni.net'
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contact"
                   className={`text-center py-2.5 px-4 rounded-lg font-medium text-sm transition-colors ${
                     tier.popular
                       ? 'btn-primary'
@@ -467,9 +457,7 @@ export default function AISDOPage() {
               <span>Human-in-the-loop oversight</span>
             </div>
             <a
-              href="https://sales.sdo.acidni.net"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="btn-primary"
             >
               Contact Sales
@@ -507,9 +495,7 @@ export default function AISDOPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a
-              href="https://sales.sdo.acidni.net"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#pricing"
               className="btn-primary bg-white text-slate-900 hover:bg-slate-100"
             >
               Start Free Trial

@@ -124,7 +124,7 @@ const structuredData = {
         highPrice: '1499',
         priceCurrency: 'USD',
         offerCount: '4',
-        url: 'https://sales.sdo.acidni.net',
+        url: 'https://www.acidni.net/products/ai-sdo#pricing',
       },
     },
     {
