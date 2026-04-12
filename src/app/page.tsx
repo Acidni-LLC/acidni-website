@@ -148,9 +148,7 @@ export default function Home() {
               </ul>
               <div className="flex flex-wrap gap-3">
                 <a 
-                  href="https://sales.sdo.acidni.net" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/products/ai-sdo#pricing" 
                   className="btn-primary text-sm bg-gradient-to-r from-violet-500 to-purple-600"
                 >
                   Start Free Trial
