@@ -9,6 +9,7 @@ const footerLinks = {
     { name: 'CannaTech Consulting', href: '/services/cannatech' },
   ],
   products: [
+    { name: 'AI SDO', href: '/products/ai-sdo' },
     { name: 'ACCM - Copilot Chat Manager', href: '/products/accm' },
     { name: 'Terprint', href: '/products/terprint' },
   ],
