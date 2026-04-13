@@ -135,8 +135,8 @@ const pricingTiers = [
     period: '/month',
     description: 'For large-scale software delivery organizations',
     features: [
-      'Unlimited projects',
-      'Unlimited agents',
+      'Up to 50 projects',
+      'Up to 100 AI agent slots',
       'Custom governance policies',
       'SSO & RBAC',
       'Dedicated instance',

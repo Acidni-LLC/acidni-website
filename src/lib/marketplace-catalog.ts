@@ -109,18 +109,14 @@ export const marketplaceProducts: MarketplaceProduct[] = [
         features: [
           'Up to 200 Azure subscriptions',
           '10,000 monitored resources',
-          'Unlimited AI insights',
+          'Advanced AI insights',
           'Compliance reporting',
           'RBAC and SSO',
           'Dedicated support & SLA',
         ],
       },
     ],
-    links: {
-      website: 'https://gridsight.acidni.net',
-      sales: 'https://sales.gridsight.acidni.net',
-      docs: 'https://docs.gridsight.acidni.net',
-    },
+    links: {},
     gradient: 'from-cyan-500 to-blue-600',
   },
   {
@@ -171,8 +167,8 @@ export const marketplaceProducts: MarketplaceProduct[] = [
         price: 'Custom',
         frequency: '',
         features: [
-          'Unlimited projects',
-          'Unlimited agents',
+          'Up to 50 projects',
+          'Up to 100 agents',
           'Custom governance',
           'SSO & RBAC',
           'Dedicated instance',
@@ -232,7 +228,7 @@ export const marketplaceProducts: MarketplaceProduct[] = [
         price: '$499',
         frequency: '/mo',
         features: [
-          'Unlimited API calls',
+          '500,000 API calls/month',
           'Custom data feeds',
           'Dedicated endpoints',
           'SLA guarantee',
@@ -241,7 +237,6 @@ export const marketplaceProducts: MarketplaceProduct[] = [
       },
     ],
     links: {
-      website: 'https://terprint.acidni.net',
       sales: 'https://sales.terprint.com',
     },
     gradient: 'from-emerald-500 to-teal-600',
@@ -292,7 +287,7 @@ export const marketplaceProducts: MarketplaceProduct[] = [
         price: '$999',
         frequency: '/mo',
         features: [
-          'Unlimited providers',
+          'Up to 25 providers',
           'Full EHR suite',
           'Custom integrations',
           'HIPAA audit trail',
@@ -301,7 +296,6 @@ export const marketplaceProducts: MarketplaceProduct[] = [
       },
     ],
     links: {
-      website: 'https://doctor.terprint.com',
       sales: 'https://sales.terprint.com',
     },
     gradient: 'from-blue-500 to-indigo-600',
@@ -352,7 +346,7 @@ export const marketplaceProducts: MarketplaceProduct[] = [
         price: '$799',
         frequency: '/mo',
         features: [
-          'Unlimited vehicles',
+          'Up to 500 vehicles',
           'Custom integrations',
           'API access',
           'SSO & RBAC',
@@ -446,7 +440,7 @@ export const marketplaceProducts: MarketplaceProduct[] = [
         price: '$299',
         frequency: '/mo',
         features: [
-          'Unlimited offers',
+          'Up to 50 offers',
           'Partner Center API',
           'Automated publishing',
           'Revenue analytics',
@@ -455,9 +449,7 @@ export const marketplaceProducts: MarketplaceProduct[] = [
         isPopular: true,
       },
     ],
-    links: {
-      website: 'https://marketplace.acidni.net',
-    },
+    links: {},
     gradient: 'from-slate-500 to-zinc-600',
   },
 ]
