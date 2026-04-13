@@ -9,8 +9,9 @@ export function generateStaticParams() {
   return offers.map((o) => ({ slug: o.slug }))
 }
 
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const offer = getOfferBySlug(params.slug)
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { slug } = await params
+  const offer = getOfferBySlug(slug)
   if (!offer) return {}
   return {
     title: `${offer.name} – Terprint`,
@@ -25,8 +26,9 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   }
 }
 
-export default function TerprintOfferPage({ params }: { params: Params }) {
-  const offer = getOfferBySlug(params.slug)
+export default async function TerprintOfferPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params
+  const offer = getOfferBySlug(slug)
   if (!offer) return notFound()
 
   const jsonLd = {
