@@ -70,7 +70,7 @@ export default function ACCMPage() {
               </div>
             </div>
             
-            <span className="badge badge-new mb-4">🆕 Published on VS Marketplace</span>
+            <span className="badge badge-new mb-4">🆕 Available on GitHub</span>
             
             <p className="text-xl text-slate-300 mb-6">
               Never lose a Copilot conversation again. Manage, search, export, and organize 
@@ -85,12 +85,12 @@ export default function ACCMPage() {
             
             <div className="flex flex-wrap gap-4">
               <a 
-                href="https://marketplace.visualstudio.com/items?itemName=AcidniLLC.copilot-chat-manager"
+                href="https://github.com/Acidni-LLC/copilot-chat-manager"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Install from VS Marketplace
+                View on GitHub
               </a>
               <a 
                 href="https://github.com/Acidni-LLC/copilot-chat-manager"
@@ -98,7 +98,7 @@ export default function ACCMPage() {
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
-                View on GitHub
+                Source Code
               </a>
             </div>
           </div>

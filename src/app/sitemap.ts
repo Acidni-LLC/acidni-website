@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products/ai-chat-expert',
     '/products/ai-sdo',
     '/products/terprint',
+    '/products/text-a-truck',
     '/insights/what-is-an-ai-software-development-organization',
     '/case-studies',
     '/insights',

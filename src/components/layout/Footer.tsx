@@ -23,7 +23,7 @@ const footerLinks = {
     { name: 'Terms of Service', href: '/terms' },
   ],
   external: [
-    { name: 'VS Marketplace', href: 'https://marketplace.visualstudio.com/publishers/AcidniLLC', external: true },
+    { name: 'GitHub', href: 'https://github.com/Acidni-LLC', external: true },
   ],
 }
 

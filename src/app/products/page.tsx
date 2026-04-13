@@ -17,7 +17,7 @@ const featuredProducts = [
     badge: ' NEW',
     badgeClass: 'badge-new',
     gradient: 'from-acidni-500 to-accent-500',
-    published: 'Published on VS Marketplace',
+    published: 'Available on GitHub',
     features: [
       'Dashboard with statistics & word clouds',
       'Deep search across all conversations',
@@ -26,8 +26,8 @@ const featuredProducts = [
     ],
     cta: {
       primary: {
-        text: 'Install Extension',
-        href: 'https://marketplace.visualstudio.com/items?itemName=AcidniLLC.copilot-chat-manager',
+        text: 'View on GitHub',
+        href: 'https://github.com/Acidni-LLC/copilot-chat-manager',
         external: true,
       },
       secondary: {
@@ -46,7 +46,7 @@ const featuredProducts = [
     badge: ' NEW',
     badgeClass: 'badge-new',
     gradient: 'from-violet-500 to-fuchsia-500',
-    published: 'Published on VS Marketplace',
+    published: 'Coming Soon to VS Marketplace',
     features: [
       'Per-chat and session cost estimates',
       'Model-aware pricing profiles',
@@ -55,9 +55,9 @@ const featuredProducts = [
     ],
     cta: {
       primary: {
-        text: 'Install Extension',
-        href: 'https://marketplace.visualstudio.com/items?itemName=AcidniLLC.ai-chat-cost-analyzer',
-        external: true,
+        text: 'Learn More',
+        href: '/products/acca',
+        external: false,
       },
       secondary: {
         text: 'Learn More',
