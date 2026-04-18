@@ -3,7 +3,7 @@ import Script from 'next/script'
 import '@/styles/globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -230,6 +230,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <GoogleTagManager gtmId="GTM-WW8F3D6T" />
+      <GoogleAnalytics gaId="G-D8TBWM75W8" />
       <head>
         {/* Application Insights */}
         <Script id="app-insights" strategy="afterInteractive">
