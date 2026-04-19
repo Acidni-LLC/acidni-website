@@ -1,6 +1,15 @@
 const https = require('https');
 const { EmailClient } = require('@azure/communication-email');
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 module.exports = async function (context, req) {
   context.log('Contact form submission received');
 
@@ -119,13 +128,13 @@ Sent from acidni.net contact form
   const htmlBody = `
 <h2>New Contact Form Submission</h2>
 <table style="border-collapse: collapse; width: 100%; max-width: 600px;">
-  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Name</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td></tr>
-  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Email</td><td style="padding: 8px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td></tr>
-  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Company</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${company || 'Not provided'}</td></tr>
-  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Service</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${service || 'Not specified'}</td></tr>
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Name</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(name)}</td></tr>
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Email</td><td style="padding: 8px; border-bottom: 1px solid #eee;"><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Company</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(company || 'Not provided')}</td></tr>
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Service</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${escapeHtml(service || 'Not specified')}</td></tr>
 </table>
 <h3>Message</h3>
-<p style="white-space: pre-wrap;">${message}</p>
+<p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
 <hr/>
 <p style="color: #888; font-size: 12px;">Sent from acidni.net contact form</p>
   `.trim();
