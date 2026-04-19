@@ -40,3 +40,4 @@ tmp_deployment_token.txt
 next-env.d.ts
 
 .fake
+api/node_modules/

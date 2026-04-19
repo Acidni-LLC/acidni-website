@@ -1,4 +1,5 @@
 const https = require('https');
+const { EmailClient } = require('@azure/communication-email');
 
 module.exports = async function (context, req) {
   context.log('Contact form submission received');
@@ -19,6 +20,16 @@ module.exports = async function (context, req) {
     context.res = {
       status: 400,
       body: { error: 'Missing required fields: name, email, message' }
+    };
+    return;
+  }
+
+  // Basic email format validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    context.res = {
+      status: 400,
+      body: { error: 'Invalid email format' }
     };
     return;
   }
@@ -77,8 +88,20 @@ module.exports = async function (context, req) {
     }
   }
 
+  // Get ACS connection string from environment
+  const connectionString = process.env.ACS_CONNECTION_STRING;
+
+  if (!connectionString) {
+    context.log.error('ACS_CONNECTION_STRING environment variable not set');
+    context.res = {
+      status: 500,
+      body: { error: 'Server configuration error' }
+    };
+    return;
+  }
+
   // Build email content
-  const emailBody = `
+  const plainTextBody = `
 New Contact Form Submission from Acidni.net
 
 Name: ${name}
@@ -93,66 +116,54 @@ ${message}
 Sent from acidni.net contact form
   `.trim();
 
-  const payload = JSON.stringify({
-    to: 'contact@acidni.net',
-    subject: `[Acidni.net] Contact from ${name} - ${service || 'General Inquiry'}`,
-    body: emailBody,
-  });
-
-  // Get API key from environment variable
-  const apiKey = process.env.COMMS_API_KEY;
-  
-  if (!apiKey) {
-    context.log.error('COMMS_API_KEY environment variable not set');
-    context.res = {
-      status: 500,
-      body: { error: 'Server configuration error' }
-    };
-    return;
-  }
+  const htmlBody = `
+<h2>New Contact Form Submission</h2>
+<table style="border-collapse: collapse; width: 100%; max-width: 600px;">
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Name</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${name}</td></tr>
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Email</td><td style="padding: 8px; border-bottom: 1px solid #eee;"><a href="mailto:${email}">${email}</a></td></tr>
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Company</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${company || 'Not provided'}</td></tr>
+  <tr><td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #eee;">Service</td><td style="padding: 8px; border-bottom: 1px solid #eee;">${service || 'Not specified'}</td></tr>
+</table>
+<h3>Message</h3>
+<p style="white-space: pre-wrap;">${message}</p>
+<hr/>
+<p style="color: #888; font-size: 12px;">Sent from acidni.net contact form</p>
+  `.trim();
 
   try {
-    const response = await new Promise((resolve, reject) => {
-      const options = {
-        hostname: 'apim-terprint-dev.azure-api.net',
-        port: 443,
-        path: '/communications/send-email',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Ocp-Apim-Subscription-Key': apiKey,
-          'Content-Length': Buffer.byteLength(payload),
-        },
-      };
+    const emailClient = new EmailClient(connectionString);
 
-      const apiReq = https.request(options, (res) => {
-        let data = '';
-        res.on('data', (chunk) => data += chunk);
-        res.on('end', () => {
-          resolve({ status: res.statusCode, data });
-        });
-      });
+    const emailMessage = {
+      senderAddress: 'contact@acidni.net',
+      content: {
+        subject: `[Acidni.net] Contact from ${name} - ${service || 'General Inquiry'}`,
+        plainText: plainTextBody,
+        html: htmlBody,
+      },
+      recipients: {
+        to: [{ address: 'contact@acidni.net', displayName: 'Acidni LLC' }],
+      },
+      replyTo: [{ address: email, displayName: name }],
+    };
 
-      apiReq.on('error', reject);
-      apiReq.write(payload);
-      apiReq.end();
-    });
+    const poller = await emailClient.beginSend(emailMessage);
+    const result = await poller.pollUntilDone();
 
-    if (response.status >= 200 && response.status < 300) {
-      context.log('Email sent successfully');
+    if (result.status === 'Succeeded') {
+      context.log('Email sent successfully via ACS');
       context.res = {
         status: 200,
         body: { success: true, message: 'Message sent successfully' }
       };
     } else {
-      context.log.error(`API returned status ${response.status}: ${response.data}`);
+      context.log.error('ACS email send failed:', JSON.stringify(result));
       context.res = {
         status: 500,
         body: { error: 'Failed to send email' }
       };
     }
   } catch (error) {
-    context.log.error('Error sending email:', error.message);
+    context.log.error('Error sending email via ACS:', error.message);
     context.res = {
       status: 500,
       body: { error: 'Failed to send email' }
