@@ -2,7 +2,6 @@
   "name": "acidni-website-api",
   "version": "1.0.0",
   "description": "API functions for Acidni website",
-  "main": "index.js",
   "engines": {
     "node": ">=18.0.0"
   },
